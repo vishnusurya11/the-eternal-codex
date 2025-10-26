@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{PAGE_DESCRIPTION}}">
+
+    <!-- Page Title -->
+    <title>{{PAGE_TITLE}} | The Eternal Codex of Visurena</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Theme CSS Layers - Load in cascading order -->
+    <!-- Level 0: Always loaded (Celestial Dominion base) -->
+    <link rel="stylesheet" href="{{PATH_TO_ROOT}}css/theme-base.css">
+
+    <!-- Level 1: Always loaded (House Visurena sovereign) -->
+    <link rel="stylesheet" href="{{PATH_TO_ROOT}}css/theme-visurena.css">
+
+    <!-- Level 2: Conditional - Eterna Prime (if page is under Eterna Prime) -->
+    <!-- {{ETERNA_PRIME_CSS}} -->
+
+    <!-- Level 3: Conditional - Stellara Sonara (if page is under this realm) -->
+    <!-- {{STELLARA_SONARA_CSS}} -->
+
+    <!-- Level 4 & 5: Conditional - Specific Houses -->
+    <link rel="stylesheet" href="{{PATH_TO_ROOT}}css/theme-houses.css">
+
+    <!-- Theme inheritance & navigation -->
+    <link rel="stylesheet" href="{{PATH_TO_ROOT}}css/theme-inheritance.css">
+    <link rel="stylesheet" href="{{PATH_TO_ROOT}}css/navigation.css">
+    <link rel="stylesheet" href="{{PATH_TO_ROOT}}css/space-background.css">
+    <link rel="stylesheet" href="{{PATH_TO_ROOT}}css/micro-interactions.css">
+    <link rel="stylesheet" href="{{PATH_TO_ROOT}}css/creative-touches.css">
+</head>
+<body class="{{BODY_THEME_CLASSES}}">
+
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Theme Indicator Bar (shows active hierarchy levels) -->
+    <div class="theme-indicator" id="theme-indicator">
+        <!-- JavaScript will populate these based on page location -->
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <span class="mobile-menu-toggle__icon"></span>
+    </button>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- Main Wiki Container -->
+    <div class="wiki-container">
+
+        <!-- Sidebar Navigation -->
+        <aside class="wiki-sidebar" id="wiki-sidebar">
+
+            <!-- Sidebar Header -->
+            <div class="sidebar-header">
+                <a href="{{PATH_TO_ROOT}}index.html" class="sidebar-logo">
+                    <span class="sidebar-logo__icon">✦</span>
+                    <div class="sidebar-logo__text">
+                        <h1 class="sidebar-logo__title">The Eternal Codex</h1>
+                        <p class="sidebar-logo__subtitle">of Visurena</p>
+                    </div>
+                </a>
+
+                <!-- Navigation Actions -->
+                <div class="sidebar-actions">
+                    <a href="{{PATH_TO_ROOT}}index.html" class="sidebar-btn sidebar-btn--home">Home</a>
+                    <button class="sidebar-btn sidebar-btn--back" id="sidebar-back-btn">Back</button>
+                </div>
+            </div>
+
+            <!-- Optional: Search Box -->
+            <!-- <div class="sidebar-search">
+                <input type="text" class="search-input" placeholder="Search the Codex..." id="search-input">
+            </div> -->
+
+            <!-- Table of Contents -->
+            <nav class="sidebar-toc" id="sidebar-toc">
+                <!-- JavaScript will populate this dynamically based on page hierarchy -->
+                {{SIDEBAR_TOC_CONTENT}}
+            </nav>
+
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="wiki-main">
+
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb navigation">
+                <!-- JavaScript will populate breadcrumbs automatically -->
+            </nav>
+
+            <!-- Page Header -->
+            <header class="page-header {{PAGE_HEADER_CLASSES}}">
+                <h1 class="{{PAGE_TITLE_CLASS}}">{{PAGE_HEADING}}</h1>
+
+                <!-- Optional: Page subtitle/motto -->
+                {{PAGE_SUBTITLE}}
+
+                <!-- Theme Badges (showing hierarchy path) -->
+                <div class="theme-badges" id="theme-badges">
+                    <!-- JavaScript will populate based on page location -->
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <article class="wiki-content" id="main-content">
+
+                <!-- Page-specific content goes here -->
+                {{MAIN_CONTENT}}
+
+            </article>
+
+            <!-- Page Navigation (Previous/Next) -->
+            <nav class="page-navigation" id="page-navigation">
+                <!-- JavaScript can populate prev/next links -->
+                {{PAGE_NAV_BUTTONS}}
+            </nav>
+
+            <!-- Footer -->
+            <footer class="wiki-footer">
+                <div class="divider"></div>
+                <p style="text-align: center; padding: var(--space-4); opacity: 0.7; font-size: var(--text-sm);">
+                    <span class="visurena-crown-mark"></span>
+                    Under the Golden Seal of House Visurena
+                    <span class="visurena-crown-mark"></span>
+                </p>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
+        <!-- CSS ::before will add arrow -->
+    </button>
+
+    <!-- JavaScript -->
+    <script src="{{PATH_TO_ROOT}}js/space-background.js"></script>
+    <script src="{{PATH_TO_ROOT}}js/scroll-animations.js"></script>
+    <script src="{{PATH_TO_ROOT}}js/creative-touches.js"></script>
+    <script src="{{PATH_TO_ROOT}}js/wiki-navigation.js"></script>
+    <script src="{{PATH_TO_ROOT}}js/theme-manager.js"></script>
+    <script src="{{PATH_TO_ROOT}}js/breadcrumb-generator.js"></script>
+
+    <!-- Page-specific initialization -->
+    <script>
+        // Initialize page with hierarchy data
+        const pageData = {
+            path: '{{PAGE_PATH}}', // e.g., 'stellara-sonara/aurifex/lexomancer'
+            title: '{{PAGE_TITLE}}',
+            levels: {{PAGE_HIERARCHY_JSON}} // e.g., ['celestial-dominion', 'visurena', 'eterna-prime', 'stellara-sonara', 'aurifex', 'lexomancer']
+        };
+
+        // Initialize systems on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme manager
+            if (window.ThemeManager) {
+                window.ThemeManager.init(pageData);
+            }
+
+            // Initialize breadcrumbs
+            if (window.BreadcrumbGenerator) {
+                window.BreadcrumbGenerator.init(pageData);
+            }
+
+            // Initialize navigation
+            if (window.WikiNavigation) {
+                window.WikiNavigation.init();
+            }
+        });
+    </script>
+</body>
+</html>

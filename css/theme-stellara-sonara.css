@@ -1,0 +1,558 @@
+/**
+ * LEVEL 3: STELLARA SONARA - THE SINGING STAR (AUDIOBOOK REALM) THEME
+ *
+ * The realm of audiobook production under Eterna Prime.
+ * Overlays Level 0, 1, & 2 with sonic/vocal aesthetics.
+ *
+ * Loading Order:
+ * theme-base.css → theme-visurena.css → theme-eterna-prime.css → theme-stellara-sonara.css
+ */
+
+:root {
+    /* ============================================
+       LEVEL 3 COLOR PALETTE - STELLARA SONARA
+       ============================================ */
+
+    /* Primary Sonic Colors */
+    --ss-ivory: #FFFFF0;                 /* Ivory parchment */
+    --ss-sapphire: #0F52BA;              /* Deep sapphire */
+    --ss-silver: #C0C0C0;                /* Silver voice */
+    --ss-midnight-blue: #191970;         /* Midnight blue depths */
+    --ss-powder-blue: #B0E0E6;           /* Powder blue highlights */
+
+    /* Secondary Colors */
+    --ss-pearl-white: #F0EAD6;           /* Pearl white */
+    --ss-steel-blue: #4682B4;            /* Steel blue */
+    --ss-light-silver: #D3D3D3;          /* Light silver */
+    --ss-deep-indigo: #1C1C3C;           /* Deep indigo */
+    --ss-sky-blue: #87CEEB;              /* Sky blue accents */
+
+    /* Gradient Definitions */
+    --ss-sonic-gradient: linear-gradient(
+        135deg,
+        var(--ss-midnight-blue) 0%,
+        var(--ss-sapphire) 50%,
+        var(--ss-steel-blue) 100%
+    );
+
+    --ss-voice-gradient: linear-gradient(
+        90deg,
+        var(--ss-silver) 0%,
+        var(--ss-ivory) 50%,
+        var(--ss-silver) 100%
+    );
+
+    --ss-wave-gradient: linear-gradient(
+        180deg,
+        var(--ss-sapphire) 0%,
+        var(--ss-powder-blue) 100%
+    );
+
+    /* Glow Effects */
+    --ss-sapphire-glow: 0 0 25px rgba(15, 82, 186, 0.4),
+                        0 0 50px rgba(15, 82, 186, 0.3),
+                        0 0 75px rgba(15, 82, 186, 0.2);
+
+    --ss-silver-shimmer: 0 0 20px rgba(192, 192, 192, 0.4),
+                         0 0 40px rgba(192, 192, 192, 0.3);
+
+    --ss-ivory-glow: 0 0 15px rgba(255, 255, 240, 0.3),
+                     0 0 30px rgba(255, 255, 240, 0.2);
+
+    --ss-sonic-aura: 0 0 20px rgba(15, 82, 186, 0.3),
+                     0 0 40px rgba(192, 192, 192, 0.2),
+                     0 0 60px rgba(255, 255, 240, 0.1);
+}
+
+/* ============================================
+   STELLARA SONARA BODY OVERLAY
+   ============================================ */
+
+body.theme-stellara-sonara {
+    background: var(--ss-sonic-gradient);
+    background-attachment: fixed;
+}
+
+/* Enhanced starfield with sonic theme */
+body.theme-stellara-sonara::before {
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, var(--ss-ivory), transparent),
+        radial-gradient(3px 3px at 60% 70%, var(--ss-sapphire), transparent),
+        radial-gradient(2px 2px at 50% 50%, var(--ss-silver), transparent),
+        radial-gradient(1px 1px at 80% 10%, var(--ss-powder-blue), transparent),
+        radial-gradient(2px 2px at 90% 60%, var(--ss-ivory), transparent),
+        radial-gradient(1px 1px at 33% 80%, var(--ss-sky-blue), transparent),
+        radial-gradient(3px 3px at 15% 50%, var(--ss-sapphire), transparent),
+        radial-gradient(1px 1px at 70% 40%, var(--ss-silver), transparent);
+    opacity: 0.6;
+    animation: sonic-pulse 15s ease-in-out infinite;
+}
+
+@keyframes sonic-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.7; }
+}
+
+/* ============================================
+   TYPOGRAPHY OVERRIDES
+   ============================================ */
+
+body.theme-stellara-sonara h1 {
+    color: var(--ss-ivory);
+    text-shadow: var(--ss-sonic-aura);
+    border-bottom: 3px solid transparent;
+    border-image: var(--ss-voice-gradient) 1;
+    padding-bottom: var(--space-2);
+}
+
+body.theme-stellara-sonara h2 {
+    color: var(--ss-sapphire);
+    text-shadow: var(--ss-sapphire-glow);
+}
+
+body.theme-stellara-sonara h3 {
+    color: var(--ss-silver);
+    text-shadow: var(--ss-silver-shimmer);
+}
+
+body.theme-stellara-sonara h4 {
+    color: var(--ss-powder-blue);
+}
+
+body.theme-stellara-sonara h5,
+body.theme-stellara-sonara h6 {
+    color: var(--ss-steel-blue);
+}
+
+/* ============================================
+   SONIC DECORATIVE ELEMENTS
+   ============================================ */
+
+.stellara-sonic-mark {
+    display: inline-block;
+    color: var(--ss-sapphire);
+    font-size: 1.2em;
+    margin: 0 var(--space-2);
+    text-shadow: var(--ss-sapphire-glow);
+    animation: sonic-wave 2s ease-in-out infinite;
+}
+
+.stellara-sonic-mark::before {
+    content: '♪';
+}
+
+@keyframes sonic-wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.stellara-divider {
+    width: 100%;
+    height: 3px;
+    background: var(--ss-voice-gradient);
+    margin: var(--space-6) 0;
+    box-shadow: var(--ss-sonic-aura);
+    position: relative;
+}
+
+.stellara-divider::before,
+.stellara-divider::after {
+    content: '♫';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ss-sapphire);
+    font-size: var(--text-xl);
+    text-shadow: var(--ss-sapphire-glow);
+}
+
+.stellara-divider::before {
+    left: -25px;
+    animation: note-float 3s ease-in-out infinite;
+}
+
+.stellara-divider::after {
+    right: -25px;
+    animation: note-float 3s ease-in-out infinite 0.5s;
+}
+
+@keyframes note-float {
+    0%, 100% { transform: translateY(-50%) rotate(0deg); }
+    50% { transform: translateY(-55%) rotate(5deg); }
+}
+
+/* Sound wave separator */
+.stellara-divider.wave {
+    height: 2px;
+    background: var(--ss-sapphire);
+    position: relative;
+    overflow: visible;
+}
+
+.stellara-divider.wave::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--ss-sapphire) 0px,
+        var(--ss-sapphire) 2px,
+        transparent 2px,
+        transparent 6px,
+        var(--ss-powder-blue) 6px,
+        var(--ss-powder-blue) 8px,
+        transparent 8px,
+        transparent 12px
+    );
+    opacity: 0.4;
+}
+
+/* ============================================
+   SONIC PANEL STYLES
+   ============================================ */
+
+.stellara-panel {
+    background: linear-gradient(
+        135deg,
+        rgba(25, 25, 112, 0.8) 0%,
+        rgba(15, 82, 186, 0.7) 100%
+    );
+    border: var(--border-medium) solid var(--ss-sapphire);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--ss-sonic-aura),
+                inset 0 2px 0 rgba(192, 192, 192, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.stellara-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--ss-voice-gradient);
+    opacity: 0.7;
+}
+
+/* Sound wave animation overlay */
+.stellara-panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 10px,
+            rgba(192, 192, 192, 0.03) 10px,
+            rgba(192, 192, 192, 0.03) 11px
+        );
+    pointer-events: none;
+    animation: wave-scroll 20s linear infinite;
+}
+
+@keyframes wave-scroll {
+    from { transform: translateY(0); }
+    to { transform: translateY(100px); }
+}
+
+.stellara-panel:hover {
+    border-color: var(--ss-ivory);
+    box-shadow: var(--ss-sapphire-glow),
+                var(--ss-silver-shimmer);
+    transform: translateY(-2px);
+    transition: all var(--transition-base);
+}
+
+/* ============================================
+   SONIC LINK STYLES
+   ============================================ */
+
+body.theme-stellara-sonara a {
+    color: var(--ss-sapphire);
+    position: relative;
+    font-weight: var(--weight-medium);
+}
+
+body.theme-stellara-sonara a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--ss-voice-gradient);
+    transition: width var(--transition-base);
+}
+
+body.theme-stellara-sonara a:hover {
+    color: var(--ss-ivory);
+    text-shadow: var(--ss-sonic-aura);
+}
+
+body.theme-stellara-sonara a:hover::before {
+    width: 100%;
+    box-shadow: var(--ss-sapphire-glow);
+}
+
+/* ============================================
+   SONIC HEADER STYLES
+   ============================================ */
+
+.stellara-header {
+    background: linear-gradient(
+        90deg,
+        var(--ss-midnight-blue) 0%,
+        var(--ss-sapphire) 25%,
+        var(--ss-steel-blue) 50%,
+        var(--ss-sapphire) 75%,
+        var(--ss-midnight-blue) 100%
+    );
+    border-top: 2px solid var(--ss-silver);
+    border-bottom: 3px solid var(--ss-sapphire);
+    padding: var(--space-8) var(--space-4);
+    position: relative;
+    box-shadow: 0 6px 30px rgba(15, 82, 186, 0.5);
+}
+
+.stellara-header::before {
+    content: '♪ ♫ ♪ ♫ ♪';
+    position: absolute;
+    top: var(--space-2);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--ss-silver);
+    font-size: var(--text-lg);
+    opacity: 0.4;
+    letter-spacing: var(--space-4);
+}
+
+.stellara-header::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--ss-voice-gradient);
+    animation: sonic-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes sonic-shimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.stellara-title {
+    font-family: var(--font-primary);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-bold);
+    color: var(--ss-ivory);
+    text-align: center;
+    text-shadow: var(--ss-sonic-aura);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: var(--space-4) 0 0 0;
+}
+
+.stellara-subtitle {
+    font-family: var(--font-secondary);
+    font-size: var(--text-lg);
+    color: var(--ss-silver);
+    text-align: center;
+    margin-top: var(--space-3);
+    font-style: italic;
+    letter-spacing: 0.06em;
+    text-shadow: var(--ss-silver-shimmer);
+}
+
+/* ============================================
+   SONIC SEAL/BADGE
+   ============================================ */
+
+.stellara-seal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2) var(--space-4);
+    background: var(--ss-midnight-blue);
+    border: var(--border-medium) solid var(--ss-sapphire);
+    border-radius: var(--radius-full);
+    color: var(--ss-ivory);
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: var(--ss-sonic-aura);
+    position: relative;
+}
+
+.stellara-seal::before {
+    content: '♪';
+    margin-right: var(--space-1);
+    font-size: 1.2em;
+    animation: note-bounce 1s ease-in-out infinite;
+}
+
+@keyframes note-bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.stellara-seal:hover {
+    background: var(--ss-sapphire);
+    color: var(--ss-ivory);
+    border-color: var(--ss-silver);
+    box-shadow: var(--ss-sapphire-glow);
+    transform: scale(1.05);
+    transition: all var(--transition-base);
+}
+
+/* ============================================
+   SONIC VERSE/PASSAGE
+   ============================================ */
+
+.stellara-verse {
+    padding: var(--space-5);
+    background: linear-gradient(
+        135deg,
+        rgba(25, 25, 112, 0.5),
+        rgba(15, 82, 186, 0.4)
+    );
+    border-left: 4px solid var(--ss-sapphire);
+    border-right: 4px solid var(--ss-sapphire);
+    margin: var(--space-6) 0;
+    position: relative;
+    font-size: var(--text-lg);
+    color: var(--ss-ivory);
+    line-height: var(--leading-loose);
+    font-style: italic;
+}
+
+.stellara-verse::before {
+    content: '♫';
+    position: absolute;
+    top: var(--space-2);
+    left: var(--space-3);
+    font-size: var(--text-3xl);
+    color: var(--ss-silver);
+    opacity: 0.3;
+}
+
+/* ============================================
+   SONIC BUTTON STYLES
+   ============================================ */
+
+.stellara-button {
+    display: inline-block;
+    padding: var(--space-3) var(--space-5);
+    background: var(--ss-sapphire);
+    border: var(--border-medium) solid var(--ss-silver);
+    border-radius: var(--radius-md);
+    color: var(--ss-ivory);
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--ss-sapphire-glow);
+    position: relative;
+    overflow: hidden;
+}
+
+.stellara-button::before {
+    content: '♪';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    color: var(--ss-ivory);
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: all var(--transition-slow);
+}
+
+.stellara-button:hover::before {
+    left: var(--space-3);
+    opacity: 1;
+}
+
+.stellara-button:hover {
+    background: var(--ss-ivory);
+    color: var(--ss-sapphire);
+    border-color: var(--ss-sapphire);
+    box-shadow: var(--ss-sonic-aura);
+    transform: translateY(-2px);
+    padding-left: var(--space-8);
+}
+
+.stellara-button:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   HOUSE CARDS FOR STELLARA SONARA
+   ============================================ */
+
+.stellara-house-card {
+    background: linear-gradient(
+        135deg,
+        rgba(25, 25, 112, 0.7),
+        rgba(15, 82, 186, 0.6)
+    );
+    border: var(--border-thin) solid var(--ss-steel-blue);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    margin: var(--space-4) 0;
+    transition: all var(--transition-base);
+}
+
+.stellara-house-card:hover {
+    border-color: var(--ss-sapphire);
+    box-shadow: var(--ss-sonic-aura);
+    transform: translateX(5px);
+}
+
+.stellara-house-card h4 {
+    color: var(--ss-ivory);
+    margin-bottom: var(--space-2);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 640px) {
+    .stellara-title {
+        font-size: var(--text-2xl);
+        letter-spacing: 0.08em;
+    }
+
+    .stellara-subtitle {
+        font-size: var(--text-base);
+    }
+
+    .stellara-panel {
+        padding: var(--space-4);
+    }
+
+    .stellara-verse {
+        padding: var(--space-3);
+        font-size: var(--text-base);
+    }
+
+    .stellara-header {
+        padding: var(--space-5) var(--space-3);
+    }
+}

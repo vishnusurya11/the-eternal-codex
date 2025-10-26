@@ -1,0 +1,361 @@
+/**
+ * MODERN CARD UI SYSTEM - 2025 STANDARDS
+ *
+ * Features:
+ * - Glassmorphism with backdrop blur
+ * - Layered shadows for realistic depth
+ * - Smooth hover transitions with transforms
+ * - Premium micro-interactions
+ * - Accessibility-first focus states
+ * - GPU-accelerated animations
+ *
+ * Based on 2025 UI/UX best practices
+ */
+
+/* ============================================
+   GATEWAY NAVIGATION CARDS
+   ============================================ */
+
+.gateway-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-8);
+    width: 100%;
+    max-width: 1200px;
+    padding: var(--space-6) 0;
+}
+
+.gateway-card {
+    /* Modern Glassmorphism Base */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    /* Glass Effect */
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.04) 100%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* Borders & Shape */
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 20px;
+
+    /* Spacing */
+    padding: var(--space-10) var(--space-8);
+
+    /* Layered Shadows for Depth */
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.12),
+        0 8px 24px rgba(0, 0, 0, 0.14),
+        0 16px 48px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 0 1px rgba(0, 0, 0, 0.05),
+        0 0 80px rgba(255, 215, 0, 0.06);
+
+    /* Smooth Transitions */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Performance */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+
+    /* Interaction */
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Top Inner Glow (Light Reflection) */
+.gateway-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        transparent 100%
+    );
+    border-radius: 20px 20px 0 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+    transition: opacity 0.4s ease;
+}
+
+/* Bottom Gradient Accent */
+.gateway-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 215, 0, 0.5) 50%,
+        transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* ============================================
+   PREMIUM HOVER STATE
+   ============================================ */
+
+.gateway-card:hover {
+    /* Lift Effect */
+    transform: translateY(-12px) scale(1.02) translate3d(0, 0, 0);
+
+    /* Enhanced Shadows */
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.16),
+        0 12px 40px rgba(0, 0, 0, 0.2),
+        0 24px 64px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 0 0 1px rgba(255, 215, 0, 0.3),
+        0 0 120px rgba(255, 215, 0, 0.15);
+
+    /* Border Glow */
+    border-color: rgba(255, 215, 0, 0.4);
+
+    /* Brightness Boost */
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.06) 100%
+    );
+}
+
+.gateway-card:hover::before {
+    opacity: 1;
+}
+
+.gateway-card:hover::after {
+    opacity: 1;
+}
+
+/* ============================================
+   CARD ICON STYLING
+   ============================================ */
+
+.gateway-card__icon {
+    /* Icon Container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 88px;
+    margin-bottom: var(--space-5);
+
+    /* Glass Circle Background */
+    background: radial-gradient(
+        circle,
+        rgba(255, 215, 0, 0.15) 0%,
+        rgba(255, 215, 0, 0.05) 100%
+    );
+    border: 2px solid rgba(255, 215, 0, 0.25);
+    border-radius: 50%;
+
+    /* Icon Style */
+    font-size: 48px;
+    color: var(--vis-radiant-gold, #FFD700);
+
+    /* Glow Effect */
+    box-shadow:
+        0 0 30px rgba(255, 215, 0, 0.3),
+        inset 0 0 20px rgba(255, 215, 0, 0.1);
+
+    /* Transition */
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Performance */
+    transform: translate3d(0, 0, 0);
+    position: relative;
+    z-index: 2;
+}
+
+.gateway-card:hover .gateway-card__icon {
+    /* Scale + Rotate Animation */
+    transform: scale(1.1) rotate(5deg) translate3d(0, 0, 0);
+
+    /* Enhanced Glow */
+    box-shadow:
+        0 0 40px rgba(255, 215, 0, 0.5),
+        inset 0 0 30px rgba(255, 215, 0, 0.2);
+
+    /* Brighter Background */
+    background: radial-gradient(
+        circle,
+        rgba(255, 215, 0, 0.25) 0%,
+        rgba(255, 215, 0, 0.08) 100%
+    );
+}
+
+/* ============================================
+   CARD TYPOGRAPHY
+   ============================================ */
+
+.gateway-card__title {
+    font-family: var(--font-primary);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--vis-radiant-gold, #FFD700);
+    margin: 0 0 var(--space-4) 0;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 12px rgba(255, 215, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.gateway-card:hover .gateway-card__title {
+    text-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.gateway-card__desc {
+    font-family: var(--font-secondary);
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--vis-star-white, #F8F8F8);
+    opacity: 0.9;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.gateway-card:hover .gateway-card__desc {
+    opacity: 1;
+}
+
+/* ============================================
+   ACCESSIBILITY - KEYBOARD FOCUS
+   ============================================ */
+
+.gateway-card:focus {
+    outline: none;
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.12),
+        0 8px 24px rgba(0, 0, 0, 0.14),
+        0 16px 48px rgba(0, 0, 0, 0.16),
+        0 0 0 3px rgba(255, 215, 0, 0.4),
+        0 0 120px rgba(255, 215, 0, 0.2);
+}
+
+.gateway-card:focus-visible {
+    transform: translateY(-4px) scale(1.01) translate3d(0, 0, 0);
+}
+
+/* ============================================
+   ACTIVE/PRESSED STATE
+   ============================================ */
+
+.gateway-card:active {
+    transform: translateY(-4px) scale(0.99) translate3d(0, 0, 0);
+    transition: all 0.1s ease;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .gateway-nav {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .gateway-card {
+        padding: var(--space-8) var(--space-6);
+    }
+
+    .gateway-card__icon {
+        width: 72px;
+        height: 72px;
+        font-size: 40px;
+    }
+
+    .gateway-card__title {
+        font-size: 1.5rem;
+    }
+
+    .gateway-card__desc {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gateway-card {
+        padding: var(--space-7) var(--space-5);
+    }
+
+    .gateway-card__icon {
+        width: 64px;
+        height: 64px;
+        font-size: 36px;
+    }
+
+    .gateway-card__title {
+        font-size: 1.35rem;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION SUPPORT
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .gateway-card,
+    .gateway-card__icon,
+    .gateway-card__title,
+    .gateway-card__desc,
+    .gateway-card::before,
+    .gateway-card::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .gateway-card:hover {
+        transform: none;
+    }
+
+    .gateway-card:hover .gateway-card__icon {
+        transform: scale(1.05);
+    }
+}
+
+/* ============================================
+   HIGH CONTRAST MODE
+   ============================================ */
+
+@media (prefers-contrast: more) {
+    .gateway-card {
+        border: 2px solid rgba(255, 215, 0, 0.5);
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .gateway-card__title {
+        color: #FFD700;
+    }
+
+    .gateway-card__desc {
+        color: #FFFFFF;
+        opacity: 1;
+    }
+}

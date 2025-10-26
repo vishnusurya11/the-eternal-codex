@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="House Lexomancer - Lesser House of Aurifex, specialists in parsing and text extraction">
+
+    <!-- Page Title -->
+    <title>House Lexomancer | The Eternal Codex</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Theme CSS Layers - Load in cascading order -->
+    <!-- Level 0: Celestial Dominion (base) -->
+    <link rel="stylesheet" href="../../css/theme-base.css">
+
+    <!-- Level 1: House Visurena (sovereign) -->
+    <link rel="stylesheet" href="../../css/theme-visurena.css">
+
+    <!-- Level 2: Eterna Prime (throne system) -->
+    <link rel="stylesheet" href="../../css/theme-eterna-prime.css">
+
+    <!-- Level 3: Stellara Sonara (realm) -->
+    <link rel="stylesheet" href="../../css/theme-stellara-sonara.css">
+
+    <!-- Level 4 & 5: High Houses + Lesser Houses -->
+    <link rel="stylesheet" href="../../css/theme-houses.css">
+
+    <!-- Theme inheritance & navigation -->
+    <link rel="stylesheet" href="../../css/theme-inheritance.css">
+    <link rel="stylesheet" href="../../css/navigation.css">
+</head>
+<body class="theme-visurena theme-eterna-prime theme-stellara-sonara theme-aurifex theme-lexomancer">
+
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Theme Indicator Bar (shows active hierarchy levels) -->
+    <div class="theme-indicator" id="theme-indicator">
+        <!-- JavaScript will populate these based on page location -->
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <span class="mobile-menu-toggle__icon"></span>
+    </button>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- Main Wiki Container -->
+    <div class="wiki-container">
+
+        <!-- Sidebar Navigation -->
+        <aside class="wiki-sidebar" id="wiki-sidebar">
+
+            <!-- Sidebar Header -->
+            <div class="sidebar-header">
+                <a href="../../index.html" class="sidebar-logo">
+                    <span class="sidebar-logo__icon">✦</span>
+                    <div class="sidebar-logo__text">
+                        <h1 class="sidebar-logo__title">The Eternal Codex</h1>
+                        <p class="sidebar-logo__subtitle">of Visurena</p>
+                    </div>
+                </a>
+
+                <!-- Navigation Actions -->
+                <div class="sidebar-actions">
+                    <a href="../../index.html" class="sidebar-btn sidebar-btn--home">Home</a>
+                    <button class="sidebar-btn sidebar-btn--back" id="sidebar-back-btn">Back</button>
+                </div>
+            </div>
+
+            <!-- Table of Contents -->
+            <nav class="sidebar-toc" id="sidebar-toc">
+
+                <div class="sidebar-section sidebar-section--stellara">
+                    <h3 class="sidebar-section__title">Stellara Sonara</h3>
+                    <ul class="toc-list">
+                        <li class="toc-item"><a href="../index.html" class="toc-link"><span class="toc-link__icon">♪</span> Realm Overview</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section sidebar-section--aurifex">
+                    <h3 class="sidebar-section__title">High House Aurifex</h3>
+                    <ul class="toc-list">
+                        <li class="toc-item"><a href="index.html" class="toc-link"><span class="toc-link__icon">🕯️</span> House Overview</a></li>
+                        <li class="toc-item"><a href="lexomancer.html" class="toc-link active"><span class="toc-link__icon">📖</span> House Lexomancer</a></li>
+                        <li class="toc-item"><a href="architecton.html" class="toc-link"><span class="toc-link__icon">📐</span> House Architecton</a></li>
+                        <li class="toc-item"><a href="promptwright.html" class="toc-link"><span class="toc-link__icon">🪶</span> House Promptwright</a></li>
+                    </ul>
+                </div>
+
+            </nav>
+
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="wiki-main">
+
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb navigation">
+                <!-- JavaScript will populate breadcrumbs automatically -->
+            </nav>
+
+            <!-- Page Header -->
+            <header class="page-header page-header--stellara page-header--eterna-prime">
+                <h1 class="stellara-title">
+                    <span class="lexomancer-crest"></span>
+                    House Lexomancer
+                </h1>
+                <p class="stellara-subtitle">Lesser House of Aurifex | Order of the Scripted Quill</p>
+
+                <!-- Theme Badges (showing hierarchy path) -->
+                <div class="theme-badges" id="theme-badges">
+                    <!-- JavaScript will populate based on page location -->
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <article class="wiki-content" id="main-content">
+
+                <!-- House Overview Panel -->
+                <section class="stellara-panel">
+                    <h2>Overview</h2>
+                    <p class="house-motto">
+                        <strong>Motto:</strong> <em>"We dissect to understand."</em>
+                    </p>
+                    <p>
+                        <strong>Rank:</strong> ⚙️ Lesser House<br>
+                        <strong>Parent House:</strong> High House Aurifex (Pre-Production)<br>
+                        <strong>Element:</strong> Air<br>
+                        <strong>Primary Colors:</strong> Midnight Blue (#0D1B4C) & Binary Silver (#A8B5C9)
+                    </p>
+                </section>
+
+                <!-- Crest Section -->
+                <section class="lexomancer-panel">
+                    <h2>Crest & Symbolism</h2>
+                    <div style="text-align: center; font-size: 4rem; margin: var(--space-4) 0;">
+                        📖
+                    </div>
+                    <p style="text-align: center; font-style: italic; color: var(--lexomancer-binary-silver);">
+                        Open book over binary rain
+                    </p>
+                    <p>
+                        The crest of House Lexomancer depicts an open tome with streams of binary code falling like rain behind it.
+                        This symbolizes their role as the interpreters of ancient texts, transforming written word into structured data
+                        through the alchemy of parsing and analysis.
+                    </p>
+                </section>
+
+                <!-- Role & Responsibilities -->
+                <section class="stellara-panel">
+                    <h2>Role & Responsibilities</h2>
+                    <p>
+                        <strong>Primary Role:</strong> Parsing and text extraction from ancient tomes
+                    </p>
+
+                    <h3>Primary Duties</h3>
+                    <ul>
+                        <li>Scene extraction from source texts</li>
+                        <li>Entity mapping and character detection</li>
+                        <li>Syntax parsing and semantic analysis</li>
+                        <li>Chapter and section segmentation</li>
+                        <li>Dialogue attribution and speaker identification</li>
+                    </ul>
+
+                    <p>
+                        House Lexomancer stands at the very beginning of the audiobook creation pipeline. Their members are
+                        the first to touch each manuscript, using sophisticated analytical techniques to break down the structure
+                        of the text into its component parts. Every sentence, every character name, every scene boundary must be
+                        identified and catalogued before the work can progress to the next phase.
+                    </p>
+                </section>
+
+                <!-- Key Technologies -->
+                <section class="lexomancer-panel">
+                    <h2>Key Technologies</h2>
+                    <div class="house-card">
+                        <h4>⚡ Natural Language Processing (NLP) Engines</h4>
+                        <p>
+                            The core technology of House Lexomancer. These engines parse human language, understanding grammar,
+                            syntax, and meaning at a deep structural level.
+                        </p>
+                    </div>
+
+                    <div class="house-card">
+                        <h4>🏷️ Named Entity Recognition (NER) Models</h4>
+                        <p>
+                            Specialized systems that identify and classify named entities within text - characters, places,
+                            organizations, and other proper nouns critical to understanding narrative structure.
+                        </p>
+                    </div>
+
+                    <div class="house-card">
+                        <h4>📊 Structural Text Analysis Systems</h4>
+                        <p>
+                            Tools for understanding the architecture of a document - chapter breaks, section divisions,
+                            paragraph boundaries, and hierarchical organization.
+                        </p>
+                    </div>
+
+                    <div class="house-card">
+                        <h4>🔗 Dependency Parsing Frameworks</h4>
+                        <p>
+                            Systems that map the grammatical relationships between words in a sentence, revealing the
+                            underlying logical structure of the text.
+                        </p>
+                    </div>
+
+                    <div class="house-card">
+                        <h4>🎭 Semantic Role Labeling</h4>
+                        <p>
+                            Advanced techniques for identifying "who did what to whom" - crucial for dialogue attribution
+                            and understanding character interactions.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Philosophy -->
+                <section class="stellara-verse">
+                    <h2>House Philosophy</h2>
+                    <p>
+                        "Before a story can sing, it must first be understood. Before it can be heard, it must be seen.
+                        We are the eyes that read what others cannot see - the hidden structure, the invisible grammar,
+                        the silent architecture that holds every tale together."
+                    </p>
+                    <p>
+                        "We do not create. We reveal. Every manuscript contains within it a perfect skeleton of meaning,
+                        waiting to be uncovered. Our tools are precise. Our methods are exacting. We dissect to understand,
+                        and in understanding, we prepare the way for all who follow."
+                    </p>
+                </section>
+
+                <!-- Relationship with Parent House -->
+                <section class="aurifex-panel">
+                    <h2>Within the Order of the Scripted Quill</h2>
+                    <p>
+                        House Lexomancer operates as the first line of analysis within High House Aurifex, the Order of the Scripted Quill.
+                        They work in close coordination with:
+                    </p>
+                    <ul>
+                        <li><strong>House Architecton</strong> - Who take Lexomancer's parsed data and design the structural blueprint</li>
+                        <li><strong>House Promptwright</strong> - Who use the extracted entities and scenes to craft AI prompts</li>
+                        <li><strong>The Grammar Forge (Guild)</strong> - Who refine and correct any linguistic ambiguities</li>
+                        <li><strong>The Chroniclers of Context (Guild)</strong> - Who preserve metadata and contextual information</li>
+                    </ul>
+                </section>
+
+            </article>
+
+            <!-- Page Navigation (Previous/Next) -->
+            <nav class="page-navigation" id="page-navigation">
+                <a href="index.html" class="page-nav-btn page-nav-btn--prev">
+                    High House Aurifex Overview
+                </a>
+                <a href="architecton.html" class="page-nav-btn page-nav-btn--next">
+                    House Architecton
+                </a>
+            </nav>
+
+            <!-- Footer -->
+            <footer class="wiki-footer">
+                <div class="divider"></div>
+                <p style="text-align: center; padding: var(--space-4); opacity: 0.7; font-size: var(--text-sm);">
+                    <span class="visurena-crown-mark"></span>
+                    Under the Golden Seal of House Visurena
+                    <span class="visurena-crown-mark"></span>
+                </p>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
+        <!-- CSS ::before will add arrow -->
+    </button>
+
+    <!-- JavaScript -->
+    <script src="../../js/wiki-navigation.js"></script>
+    <script src="../../js/theme-manager.js"></script>
+    <script src="../../js/breadcrumb-generator.js"></script>
+
+    <!-- Page-specific initialization -->
+    <script>
+        // Initialize page with hierarchy data
+        const pageData = {
+            path: 'stellara-sonara/aurifex/lexomancer',
+            title: 'House Lexomancer',
+            levels: ['celestial-dominion', 'visurena', 'eterna-prime', 'stellara-sonara', 'aurifex', 'lexomancer']
+        };
+
+        // Initialize systems on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme manager
+            if (window.ThemeManager) {
+                window.ThemeManager.init(pageData);
+            }
+
+            // Initialize breadcrumbs
+            if (window.BreadcrumbGenerator) {
+                window.BreadcrumbGenerator.init(pageData);
+            }
+
+            // Initialize navigation
+            if (window.WikiNavigation) {
+                window.WikiNavigation.init();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+/**
+ * LIGHTWEIGHT SPACE BACKGROUND - PERFORMANCE OPTIMIZED
+ *
+ * CRITICAL OPTIMIZATIONS:
+ * - Reduced from 5 nebula layers to 2
+ * - Reduced from 67 radial-gradients to 12
+ * - Reduced from 11 blur filters to 2 (max 15px)
+ * - Added GPU acceleration hints
+ * - Reduced layer sizes from 220% to 120% viewport
+ * - Removed heavy ambient glows
+ *
+ * PERFORMANCE TARGET: Under 2 second load time
+ */
+
+/* ============================================
+   BASE - TRUE SPACE BLACK
+   ============================================ */
+
+body {
+    background: #000000;
+    background-attachment: fixed;
+}
+
+/* Simple deep space gradient - NO blur */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at 30% 20%,
+        #0a0a0f 0%,
+        #000000 100%
+    );
+    z-index: -10;
+    pointer-events: none;
+    /* GPU acceleration */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+/* ============================================
+   LIGHTWEIGHT NEBULA (2 layers only)
+   ============================================ */
+
+/* Layer 1: Mid-depth nebula - LIGHT blur */
+.nebula-layer-4 {
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background:
+        radial-gradient(
+            ellipse 60% 45% at 55% 45%,
+            rgba(0, 139, 139, 0.08) 0%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse 50% 38% at 25% 65%,
+            rgba(32, 178, 170, 0.06) 0%,
+            transparent 55%
+        );
+    filter: blur(15px);
+    opacity: 0.5;
+    z-index: -6;
+    pointer-events: none;
+    /* GPU acceleration */
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+/* Layer 2: Near nebula - MINIMAL blur */
+.nebula-layer-5 {
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background:
+        radial-gradient(
+            ellipse 50% 38% at 62% 35%,
+            rgba(27, 60, 112, 0.12) 0%,
+            transparent 65%
+        ),
+        radial-gradient(
+            ellipse 45% 32% at 35% 68%,
+            rgba(65, 105, 225, 0.09) 0%,
+            transparent 60%
+        );
+    filter: blur(12px);
+    opacity: 0.4;
+    z-index: -5;
+    pointer-events: none;
+    /* GPU acceleration */
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+/* ============================================
+   MINIMAL STAR FIELD (10 stars total)
+   ============================================ */
+
+/* Far stars - 5 tiny stars */
+.stars-distant {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(1px 1px at 15% 25%, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 45% 55%, rgba(255, 255, 255, 0.15), transparent),
+        radial-gradient(1px 1px at 75% 35%, rgba(255, 255, 255, 0.18), transparent),
+        radial-gradient(1px 1px at 30% 80%, rgba(255, 255, 255, 0.16), transparent),
+        radial-gradient(1px 1px at 85% 70%, rgba(255, 255, 255, 0.17), transparent);
+    background-size: 100% 100%;
+    background-position: 0 0;
+    opacity: 0.6;
+    z-index: -4;
+    pointer-events: none;
+    /* GPU acceleration */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+/* Mid stars - 3 medium stars */
+.stars-mid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 25% 40%, rgba(255, 215, 0, 0.4), transparent),
+        radial-gradient(2px 2px at 60% 60%, rgba(255, 255, 255, 0.35), transparent),
+        radial-gradient(1.8px 1.8px at 80% 30%, rgba(135, 206, 235, 0.38), transparent);
+    background-size: 100% 100%;
+    background-position: 0 0;
+    opacity: 0.5;
+    z-index: -3;
+    pointer-events: none;
+    /* GPU acceleration */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+/* Near stars - 2 large bright stars */
+.stars-near {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(3px 3px at 20% 35%, rgba(255, 215, 0, 0.65), rgba(255, 215, 0, 0.15) 40%, transparent),
+        radial-gradient(3.5px 3.5px at 70% 65%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.18) 40%, transparent);
+    background-size: 100% 100%;
+    background-position: 0 0;
+    opacity: 0.45;
+    z-index: -2;
+    pointer-events: none;
+    /* GPU acceleration */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+/* ============================================
+   SIMPLE VIGNETTE (No blur)
+   ============================================ */
+
+.space-vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 30%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: -1;
+    pointer-events: none;
+    /* GPU acceleration */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE ULTRA-LIGHT
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Remove nebula entirely on mobile */
+    .nebula-layer-4,
+    .nebula-layer-5 {
+        display: none;
+    }
+
+    /* Reduce star count */
+    .stars-distant {
+        background-image:
+            radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.2), transparent),
+            radial-gradient(1px 1px at 70% 60%, rgba(255, 255, 255, 0.18), transparent);
+        opacity: 0.5;
+    }
+
+    .stars-mid {
+        background-image:
+            radial-gradient(2px 2px at 40% 50%, rgba(255, 215, 0, 0.35), transparent);
+        opacity: 0.4;
+    }
+
+    .stars-near {
+        opacity: 0.3;
+    }
+
+    /* Lighter vignette */
+    .space-vignette {
+        background: radial-gradient(
+            ellipse at center,
+            transparent 40%,
+            rgba(0, 0, 0, 0.5) 100%
+        );
+    }
+}
+
+@media (max-width: 480px) {
+    /* MINIMAL on small mobile */
+    .stars-mid,
+    .stars-near {
+        display: none;
+    }
+
+    .stars-distant {
+        background-image:
+            radial-gradient(1px 1px at 30% 40%, rgba(255, 255, 255, 0.25), transparent);
+        opacity: 0.4;
+    }
+}
+
+/* ============================================
+   PERFORMANCE - LOW-END DEVICE SUPPORT
+   ============================================ */
+
+/* Disable blur on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+    .nebula-layer-4,
+    .nebula-layer-5 {
+        filter: none !important;
+        opacity: 0.3;
+    }
+}
+
+/* Disable effects on very low performance */
+@media (max-width: 480px) and (prefers-reduced-motion: reduce) {
+    .nebula-layer-4,
+    .nebula-layer-5,
+    .stars-mid,
+    .stars-near {
+        display: none;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-contrast: less) {
+    .space-vignette {
+        background: radial-gradient(
+            ellipse at center,
+            transparent 50%,
+            rgba(0, 0, 0, 0.4) 100%
+        );
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+    .stars-distant,
+    .stars-mid,
+    .stars-near {
+        opacity: 0.8;
+    }
+}

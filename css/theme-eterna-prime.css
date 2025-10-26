@@ -1,0 +1,526 @@
+/**
+ * LEVEL 2: ETERNA PRIME - THRONE STAR SYSTEM THEME
+ *
+ * The capital governance system ruling all realms.
+ * Overlays Level 0 & Level 1 with throne system aesthetics.
+ *
+ * Loading Order:
+ * theme-base.css → theme-visurena.css → theme-eterna-prime.css
+ */
+
+:root {
+    /* ============================================
+       LEVEL 2 COLOR PALETTE - ETERNA PRIME
+       ============================================ */
+
+    /* Primary Throne Colors */
+    --ep-radiant-gold: #FFD700;          /* Radiant throne gold */
+    --ep-star-white: #F8F8F8;            /* Pure star white */
+    --ep-royal-blue: #1B3C70;            /* Royal authority blue */
+    --ep-deep-blue: #0F2A50;             /* Deep throne blue */
+    --ep-azure: #2E5C8A;                 /* Azure accents */
+
+    /* Secondary Colors */
+    --ep-platinum: #E5E4E2;              /* Platinum highlights */
+    --ep-navy: #001F3F;                  /* Navy depths */
+    --ep-sapphire: #0F52BA;              /* Sapphire accent */
+    --ep-pearl: #FAF0E6;                 /* Pearl white */
+
+    /* Gradient Definitions */
+    --ep-throne-gradient: linear-gradient(
+        135deg,
+        var(--ep-deep-blue) 0%,
+        var(--ep-royal-blue) 50%,
+        var(--ep-azure) 100%
+    );
+
+    --ep-radiance-gradient: linear-gradient(
+        90deg,
+        var(--ep-radiant-gold) 0%,
+        var(--ep-star-white) 50%,
+        var(--ep-radiant-gold) 100%
+    );
+
+    --ep-authority-gradient: linear-gradient(
+        180deg,
+        var(--ep-navy) 0%,
+        var(--ep-royal-blue) 50%,
+        var(--ep-deep-blue) 100%
+    );
+
+    /* Glow Effects */
+    --ep-gold-radiance: 0 0 30px rgba(255, 215, 0, 0.5),
+                        0 0 60px rgba(255, 215, 0, 0.3),
+                        0 0 90px rgba(255, 215, 0, 0.2);
+
+    --ep-blue-aura: 0 0 20px rgba(27, 60, 112, 0.4),
+                    0 0 40px rgba(27, 60, 112, 0.3),
+                    0 0 60px rgba(27, 60, 112, 0.2);
+
+    --ep-white-glow: 0 0 20px rgba(248, 248, 248, 0.3),
+                     0 0 40px rgba(248, 248, 248, 0.2);
+
+    --ep-combined-glow: 0 0 20px rgba(255, 215, 0, 0.4),
+                        0 0 40px rgba(27, 60, 112, 0.3),
+                        0 0 60px rgba(248, 248, 248, 0.2);
+}
+
+/* ============================================
+   ETERNA PRIME BODY OVERLAY
+   ============================================ */
+
+body.theme-eterna-prime {
+    background: var(--ep-authority-gradient);
+    background-attachment: fixed;
+}
+
+/* Enhanced starfield for Eterna Prime */
+body.theme-eterna-prime::before {
+    background-image:
+        radial-gradient(3px 3px at 20% 30%, var(--ep-radiant-gold), transparent),
+        radial-gradient(2px 2px at 60% 70%, var(--ep-star-white), transparent),
+        radial-gradient(2px 2px at 50% 50%, var(--ep-sapphire), transparent),
+        radial-gradient(1px 1px at 80% 10%, var(--ep-platinum), transparent),
+        radial-gradient(3px 3px at 90% 60%, var(--ep-radiant-gold), transparent),
+        radial-gradient(2px 2px at 33% 80%, var(--ep-star-white), transparent),
+        radial-gradient(1px 1px at 15% 50%, var(--ep-azure), transparent);
+    opacity: 0.5;
+}
+
+/* ============================================
+   TYPOGRAPHY OVERRIDES
+   ============================================ */
+
+body.theme-eterna-prime h1 {
+    color: var(--ep-radiant-gold);
+    text-shadow: var(--ep-gold-radiance);
+    border-bottom: 3px solid transparent;
+    border-image: var(--ep-radiance-gradient) 1;
+    padding-bottom: var(--space-2);
+}
+
+body.theme-eterna-prime h2 {
+    color: var(--ep-star-white);
+    text-shadow: var(--ep-white-glow);
+}
+
+body.theme-eterna-prime h3 {
+    color: var(--ep-platinum);
+    text-shadow: 0 0 10px rgba(248, 248, 248, 0.3);
+}
+
+body.theme-eterna-prime h4,
+body.theme-eterna-prime h5,
+body.theme-eterna-prime h6 {
+    color: var(--ep-azure);
+}
+
+/* ============================================
+   THRONE DECORATIVE ELEMENTS
+   ============================================ */
+
+.eterna-throne-mark {
+    display: inline-block;
+    color: var(--ep-radiant-gold);
+    font-size: 1.3em;
+    margin: 0 var(--space-2);
+    text-shadow: var(--ep-gold-radiance);
+}
+
+.eterna-throne-mark::before {
+    content: '★';
+}
+
+.eterna-divider {
+    width: 100%;
+    height: 4px;
+    background: var(--ep-radiance-gradient);
+    margin: var(--space-6) 0;
+    box-shadow: var(--ep-combined-glow);
+    position: relative;
+}
+
+.eterna-divider::before,
+.eterna-divider::after {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ep-radiant-gold);
+    font-size: var(--text-xl);
+    text-shadow: var(--ep-gold-radiance);
+}
+
+.eterna-divider::before {
+    left: -30px;
+}
+
+.eterna-divider::after {
+    right: -30px;
+}
+
+/* Centered throne star separator */
+.eterna-divider.centered::after {
+    content: '★';
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    font-size: var(--text-2xl);
+}
+
+/* ============================================
+   THRONE PANEL STYLES
+   ============================================ */
+
+.eterna-panel {
+    background: linear-gradient(
+        135deg,
+        rgba(15, 42, 80, 0.9) 0%,
+        rgba(27, 60, 112, 0.8) 100%
+    );
+    border: var(--border-medium) solid var(--ep-radiant-gold);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--ep-combined-glow),
+                inset 0 2px 0 rgba(255, 215, 0, 0.1),
+                inset 0 -2px 0 rgba(27, 60, 112, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.eterna-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--ep-radiance-gradient);
+    opacity: 0.8;
+}
+
+.eterna-panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 215, 0, 0.1),
+        transparent
+    );
+    animation: throne-sweep 4s ease-in-out infinite;
+}
+
+@keyframes throne-sweep {
+    0%, 100% { left: -100%; }
+    50% { left: 100%; }
+}
+
+.eterna-panel:hover {
+    border-color: var(--ep-star-white);
+    box-shadow: var(--ep-gold-radiance),
+                var(--ep-white-glow),
+                inset 0 2px 0 rgba(255, 215, 0, 0.2);
+    transform: translateY(-3px);
+    transition: all var(--transition-slow);
+}
+
+/* ============================================
+   THRONE LINK STYLES
+   ============================================ */
+
+body.theme-eterna-prime a {
+    color: var(--ep-radiant-gold);
+    position: relative;
+    font-weight: var(--weight-medium);
+}
+
+body.theme-eterna-prime a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--ep-radiance-gradient);
+    transition: width var(--transition-base);
+    box-shadow: var(--ep-gold-radiance);
+}
+
+body.theme-eterna-prime a:hover {
+    color: var(--ep-star-white);
+    text-shadow: var(--ep-combined-glow);
+}
+
+body.theme-eterna-prime a:hover::before {
+    width: 100%;
+}
+
+/* ============================================
+   THRONE HEADER STYLES
+   ============================================ */
+
+.eterna-header {
+    background: linear-gradient(
+        90deg,
+        var(--ep-deep-blue) 0%,
+        var(--ep-royal-blue) 25%,
+        var(--ep-azure) 50%,
+        var(--ep-royal-blue) 75%,
+        var(--ep-deep-blue) 100%
+    );
+    border-top: 2px solid var(--ep-radiant-gold);
+    border-bottom: 3px solid var(--ep-radiant-gold);
+    padding: var(--space-8) var(--space-4);
+    position: relative;
+    box-shadow: 0 6px 30px rgba(255, 215, 0, 0.4),
+                inset 0 1px 0 rgba(255, 215, 0, 0.3);
+}
+
+.eterna-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1), transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(248, 248, 248, 0.1), transparent 50%);
+    pointer-events: none;
+}
+
+.eterna-header::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--ep-radiance-gradient);
+    animation: throne-pulse 2s ease-in-out infinite;
+}
+
+@keyframes throne-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.eterna-title {
+    font-family: var(--font-primary);
+    font-size: var(--text-5xl);
+    font-weight: var(--weight-bold);
+    color: var(--ep-radiant-gold);
+    text-align: center;
+    text-shadow: var(--ep-gold-radiance);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.eterna-subtitle {
+    font-family: var(--font-secondary);
+    font-size: var(--text-xl);
+    color: var(--ep-star-white);
+    text-align: center;
+    margin-top: var(--space-3);
+    font-style: italic;
+    letter-spacing: 0.08em;
+    text-shadow: var(--ep-white-glow);
+    position: relative;
+    z-index: 1;
+}
+
+.eterna-alternate-name {
+    display: block;
+    font-size: var(--text-lg);
+    color: var(--ep-platinum);
+    margin-top: var(--space-2);
+    opacity: 0.9;
+}
+
+/* ============================================
+   THRONE SEAL/BADGE
+   ============================================ */
+
+.eterna-seal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2) var(--space-5);
+    background: var(--ep-royal-blue);
+    border: var(--border-medium) solid var(--ep-radiant-gold);
+    border-radius: var(--radius-full);
+    color: var(--ep-radiant-gold);
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    box-shadow: var(--ep-combined-glow);
+    position: relative;
+}
+
+.eterna-seal::before {
+    content: '★';
+    margin-right: var(--space-2);
+    font-size: 1.3em;
+    animation: star-rotate 10s linear infinite;
+}
+
+@keyframes star-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.eterna-seal:hover {
+    background: var(--ep-radiant-gold);
+    color: var(--ep-royal-blue);
+    box-shadow: var(--ep-gold-radiance);
+    transform: scale(1.08);
+    transition: all var(--transition-base);
+}
+
+/* ============================================
+   THRONE PROCLAMATION/DECREE
+   ============================================ */
+
+.eterna-decree {
+    padding: var(--space-6);
+    background: linear-gradient(
+        135deg,
+        rgba(15, 42, 80, 0.6),
+        rgba(27, 60, 112, 0.5)
+    );
+    border-left: 5px solid var(--ep-radiant-gold);
+    border-right: 5px solid var(--ep-radiant-gold);
+    border-top: 1px solid var(--ep-azure);
+    border-bottom: 1px solid var(--ep-azure);
+    margin: var(--space-6) 0;
+    position: relative;
+    font-size: var(--text-lg);
+    color: var(--ep-star-white);
+    line-height: var(--leading-relaxed);
+}
+
+.eterna-decree::before {
+    content: '★';
+    position: absolute;
+    top: var(--space-3);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: var(--text-4xl);
+    color: var(--ep-radiant-gold);
+    text-shadow: var(--ep-gold-radiance);
+}
+
+.eterna-decree p:first-of-type {
+    margin-top: var(--space-6);
+}
+
+/* ============================================
+   THRONE BUTTON STYLES
+   ============================================ */
+
+.eterna-button {
+    display: inline-block;
+    padding: var(--space-3) var(--space-6);
+    background: var(--ep-royal-blue);
+    border: var(--border-medium) solid var(--ep-radiant-gold);
+    border-radius: var(--radius-md);
+    color: var(--ep-radiant-gold);
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--ep-blue-aura);
+    position: relative;
+    overflow: hidden;
+}
+
+.eterna-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.eterna-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.eterna-button:hover {
+    background: var(--ep-radiant-gold);
+    color: var(--ep-royal-blue);
+    border-color: var(--ep-star-white);
+    box-shadow: var(--ep-gold-radiance);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.eterna-button:active {
+    transform: translateY(-1px);
+}
+
+/* ============================================
+   THRONE LIST STYLES
+   ============================================ */
+
+body.theme-eterna-prime ul,
+body.theme-eterna-prime ol {
+    margin-left: var(--space-6);
+    margin-bottom: var(--space-4);
+}
+
+body.theme-eterna-prime ul li::marker {
+    color: var(--ep-radiant-gold);
+    content: '★ ';
+}
+
+body.theme-eterna-prime ol li::marker {
+    color: var(--ep-radiant-gold);
+    font-weight: var(--weight-bold);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 640px) {
+    .eterna-title {
+        font-size: var(--text-3xl);
+        letter-spacing: 0.08em;
+    }
+
+    .eterna-subtitle {
+        font-size: var(--text-base);
+    }
+
+    .eterna-panel {
+        padding: var(--space-4);
+    }
+
+    .eterna-decree {
+        padding: var(--space-4);
+        font-size: var(--text-base);
+    }
+
+    .eterna-header {
+        padding: var(--space-5) var(--space-3);
+    }
+}

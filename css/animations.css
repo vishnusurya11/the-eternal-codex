@@ -1,0 +1,534 @@
+/* ==============================================
+   ANIMATIONS & SCROLL EFFECTS
+   The Eternal Codex
+   ============================================== */
+
+/* === FADE-IN ANIMATION === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* === GLOW PULSE ANIMATION === */
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+    }
+}
+
+@keyframes goldGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+}
+
+/* === SHIMMER ANIMATION === */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* === FLOAT ANIMATION === */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* === ROTATE GLOW === */
+@keyframes rotateGlow {
+    0% {
+        transform: rotate(0deg);
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+    }
+    50% {
+        filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+    }
+    100% {
+        transform: rotate(360deg);
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+    }
+}
+
+/* === SCROLL FADE-IN CLASSES === */
+.fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-left {
+    opacity: 0;
+    animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.fade-in-right {
+    opacity: 0;
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+/* Staggered delays for sequential fade-ins */
+.fade-in:nth-child(1) { animation-delay: 0.1s; }
+.fade-in:nth-child(2) { animation-delay: 0.2s; }
+.fade-in:nth-child(3) { animation-delay: 0.3s; }
+.fade-in:nth-child(4) { animation-delay: 0.4s; }
+.fade-in:nth-child(5) { animation-delay: 0.5s; }
+
+/* Visible state */
+.fade-in.visible,
+.fade-in-left.visible,
+.fade-in-right.visible {
+    opacity: 1;
+    animation-play-state: running;
+}
+
+/* === HEADER ANIMATIONS === */
+.codex-header {
+    animation: fadeInUp 1s ease-out;
+}
+
+.codex-title {
+    animation: fadeInUp 1.2s ease-out, goldGlow 3s ease-in-out infinite;
+}
+
+.codex-subtitle {
+    animation: fadeInUp 1.4s ease-out;
+}
+
+.codex-seal {
+    animation: fadeInUp 1.6s ease-out;
+}
+
+/* === ORNATE DIVIDER ANIMATION === */
+.ornate-divider {
+    position: relative;
+    overflow: hidden;
+}
+
+.ornate-divider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 215, 0, 0.4),
+        transparent
+    );
+    animation: shimmer 3s infinite;
+}
+
+.ornate-divider::before {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* === SECTION HEADING ANIMATIONS === */
+.section-heading {
+    position: relative;
+}
+
+.section-heading::before {
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* === CONTENT BOX HOVER EFFECTS === */
+.content-box {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content-box:hover {
+    transform: translateY(-2px);
+}
+
+/* === COLLAPSIBLE DETAILS ANIMATION === */
+details {
+    transition: all 0.3s ease;
+}
+
+details[open] {
+    animation: fadeIn 0.3s ease-out;
+}
+
+summary {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+summary::before {
+    content: '▶';
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+summary:hover {
+    transform: translateX(4px);
+}
+
+/* === TABLE ROW ANIMATION === */
+tbody tr {
+    transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+    transform: translateX(4px);
+}
+
+/* === NAVIGATION LINK ANIMATIONS === */
+.toc-link {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.toc-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--border-gold);
+    transition: width 0.3s ease;
+}
+
+.toc-link:hover::after,
+.toc-link.active::after {
+    width: 100%;
+}
+
+/* === BACK TO TOP BUTTON ANIMATION === */
+@keyframes phoenixRise {
+    0% {
+        transform: translateY(100px) scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.back-to-top {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back-to-top.visible {
+    animation: phoenixRise 0.5s ease-out forwards;
+}
+
+.phoenix-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.back-to-top:hover .phoenix-icon {
+    animation: float 1s ease-in-out infinite;
+}
+
+/* === PYRAMID DIAGRAM GLOW === */
+.pyramid-diagram {
+    position: relative;
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+/* === HOUSE-SPECIFIC ANIMATIONS === */
+
+/* Aurifex (Air element - gentle flowing) */
+.aurifex-house {
+    animation: fadeInLeft 0.8s ease-out;
+}
+
+.aurifex-house::before {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Virelia (Fire element - pulsing intensity) */
+.virelia-house {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.virelia-house::before {
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* Caeloria (Earth/Light element - steady glow) */
+.caeloria-house {
+    animation: fadeInRight 0.8s ease-out;
+}
+
+.caeloria-house::before {
+    animation: goldGlow 3s ease-in-out infinite;
+}
+
+/* === QUOTE BOX ANIMATION === */
+.quote-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-box::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 215, 0, 0.1) 0%,
+        transparent 50%
+    );
+    animation: rotateGlow 10s linear infinite;
+    pointer-events: none;
+}
+
+.quote-box blockquote {
+    position: relative;
+    z-index: 1;
+}
+
+/* === SACRED VERSE SHIMMER === */
+.sacred-verse {
+    position: relative;
+    overflow: hidden;
+}
+
+.sacred-verse::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 215, 0, 0.2),
+        transparent
+    );
+    animation: shimmer 5s infinite;
+}
+
+/* === GUILD LIST ITEM ANIMATION === */
+.guild-list li {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.guild-list li::before {
+    content: '🪶';
+    position: absolute;
+    left: -1.5rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.guild-list li:hover::before {
+    opacity: 1;
+    left: -2rem;
+}
+
+.guild-list li:hover {
+    transform: translateX(8px);
+}
+
+/* === STAR SYSTEM SECTION PULSE === */
+.star-system-section {
+    animation: fadeIn 1s ease-out;
+}
+
+.star-system-section::before {
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* === COLOR SWATCH HOVER === */
+.color-swatch {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.color-swatch:hover {
+    transform: scale(1.5);
+    box-shadow: 0 0 20px currentColor;
+}
+
+/* === SCROLL PROGRESS INDICATOR === */
+@keyframes progressGrow {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* Progress bar if added via JS */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--eterna-gold) 0%, var(--eterna-blue) 100%);
+    transform-origin: left;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* === LOADING STATE ANIMATIONS === */
+@keyframes skeletonLoading {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 0px,
+        rgba(255, 255, 255, 0.15) 40px,
+        rgba(255, 255, 255, 0.05) 80px
+    );
+    background-size: 200px 100%;
+    animation: skeletonLoading 1.5s infinite;
+}
+
+/* === HOVER GLOW EFFECTS === */
+.high-house:hover {
+    animation: glowPulse 1s ease-in-out;
+}
+
+.regent-house:hover h4 {
+    animation: goldGlow 1s ease-in-out;
+}
+
+/* === ENTRANCE ANIMATIONS === */
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.sidebar-nav {
+    animation: slideInFromTop 0.6s ease-out;
+}
+
+/* === RESPONSIVE ANIMATION ADJUSTMENTS === */
+@media (max-width: 768px) {
+    /* Reduce animation complexity on mobile */
+    .fade-in,
+    .fade-in-left,
+    .fade-in-right {
+        animation-duration: 0.5s;
+    }
+
+    .ornate-divider::after,
+    .quote-box::after,
+    .sacred-verse::before {
+        animation: none;
+    }
+
+    .pyramid-diagram,
+    .star-system-section::before {
+        animation: none;
+    }
+}
+
+/* === PREFERS REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .fade-in,
+    .fade-in-left,
+    .fade-in-right {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* === PRINT STYLES === */
+@media print {
+    .fade-in,
+    .fade-in-left,
+    .fade-in-right {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

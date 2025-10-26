@@ -1,0 +1,415 @@
+/**
+ * LEVEL 1: HOUSE VISURENA - SOVEREIGN THEME
+ *
+ * The ruling house that governs all of the Celestial Dominion.
+ * Overlays Level 0 with black & gold sovereign aesthetics.
+ *
+ * Loading Order:
+ * theme-base.css → theme-visurena.css
+ */
+
+:root {
+    /* ============================================
+       LEVEL 1 COLOR PALETTE - HOUSE VISURENA
+       ============================================ */
+
+    /* Primary Royal Colors - THE THRONE COLORS */
+    --vis-radiant-gold: #FFD700;         /* Radiant Gold (royal throne) */
+    --vis-star-white: #F8F8F8;           /* Star White (royal throne) */
+    --vis-royal-blue: #1B3C70;           /* Royal Blue (royal throne) */
+
+    /* Supporting Royal Colors */
+    --vis-deep-blue: #0F2A50;            /* Deep royal blue */
+    --vis-azure: #2E5C8A;                /* Azure accents */
+    --vis-platinum: #E5E4E2;             /* Platinum highlights */
+    --vis-navy: #001F3F;                 /* Navy depths */
+
+    /* Gradient Definitions */
+    --vis-gold-gradient: linear-gradient(
+        135deg,
+        var(--vis-radiant-gold) 0%,
+        #DAA520 50%,
+        #B8860B 100%
+    );
+
+    --vis-royal-gradient: linear-gradient(
+        135deg,
+        var(--vis-royal-blue) 0%,
+        var(--vis-deep-blue) 50%,
+        var(--vis-navy) 100%
+    );
+
+    --vis-sovereign-gradient: linear-gradient(
+        180deg,
+        var(--vis-navy) 0%,
+        var(--vis-royal-blue) 50%,
+        var(--vis-azure) 100%
+    );
+
+    --vis-header-gradient: linear-gradient(
+        90deg,
+        var(--vis-royal-blue) 0%,
+        var(--vis-radiant-gold) 50%,
+        var(--vis-royal-blue) 100%
+    );
+
+    /* Glow Effects */
+    --vis-gold-glow: 0 0 30px rgba(255, 215, 0, 0.5),
+                     0 0 60px rgba(255, 215, 0, 0.3),
+                     0 0 90px rgba(255, 215, 0, 0.2);
+
+    --vis-blue-glow: 0 0 30px rgba(27, 60, 112, 0.4),
+                     0 0 60px rgba(27, 60, 112, 0.3);
+
+    --vis-white-glow: 0 0 20px rgba(248, 248, 248, 0.3),
+                      0 0 40px rgba(248, 248, 248, 0.2);
+
+    --vis-intense-glow: 0 0 20px rgba(255, 215, 0, 0.6),
+                        0 0 40px rgba(255, 215, 0, 0.4),
+                        0 0 60px rgba(255, 215, 0, 0.2),
+                        0 0 80px rgba(255, 215, 0, 0.1);
+}
+
+/* ============================================
+   VISURENA BODY OVERLAY
+   ============================================ */
+
+body.theme-visurena {
+    background: var(--vis-sovereign-gradient);
+    background-attachment: fixed;
+}
+
+/* Enhanced starfield for Visurena */
+body.theme-visurena::before {
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, var(--vis-radiant-gold), transparent),
+        radial-gradient(2px 2px at 60% 70%, var(--vis-star-white), transparent),
+        radial-gradient(1px 1px at 50% 50%, var(--vis-radiant-gold), transparent),
+        radial-gradient(1px 1px at 80% 10%, var(--vis-star-white), transparent),
+        radial-gradient(2px 2px at 90% 60%, var(--vis-radiant-gold), transparent),
+        radial-gradient(1px 1px at 33% 80%, var(--vis-star-white), transparent);
+    opacity: 0.5;
+}
+
+/* ============================================
+   TYPOGRAPHY OVERRIDES
+   ============================================ */
+
+body.theme-visurena h1,
+body.theme-visurena h2 {
+    color: var(--vis-radiant-gold);
+    text-shadow: var(--vis-gold-glow);
+}
+
+body.theme-visurena h3,
+body.theme-visurena h4 {
+    color: var(--vis-star-white);
+    text-shadow: var(--vis-white-glow);
+}
+
+body.theme-visurena h5,
+body.theme-visurena h6 {
+    color: var(--vis-platinum);
+}
+
+/* ============================================
+   SOVEREIGN DECORATIVE ELEMENTS
+   ============================================ */
+
+.visurena-crown-mark {
+    display: inline-block;
+    color: var(--vis-radiant-gold);
+    font-size: 1.2em;
+    margin: 0 var(--space-1);
+    text-shadow: var(--vis-gold-glow);
+}
+
+.visurena-crown-mark::before {
+    content: '♔';
+}
+
+.visurena-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 215, 0, 0.5) 50%,
+        transparent 100%
+    );
+    margin: var(--space-6) 0;
+    border: none;
+    position: relative;
+}
+
+.visurena-divider::before,
+.visurena-divider::after {
+    content: '◆';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--vis-radiant-gold);
+    font-size: var(--text-lg);
+    text-shadow: var(--vis-gold-glow);
+}
+
+.visurena-divider::before {
+    left: -20px;
+}
+
+.visurena-divider::after {
+    right: -20px;
+}
+
+/* ============================================
+   SOVEREIGN CARD/PANEL STYLES
+   ============================================ */
+
+.visurena-panel {
+    background: rgba(27, 60, 112, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2),
+                0 0 60px rgba(255, 215, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.visurena-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 215, 0, 0.5) 50%,
+        transparent 100%
+    );
+    opacity: 0.6;
+}
+
+.visurena-panel:hover {
+    background: rgba(27, 60, 112, 0.4);
+    border-color: var(--vis-radiant-gold);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3),
+                0 0 80px rgba(255, 215, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+/* ============================================
+   SOVEREIGN LINK STYLES
+   ============================================ */
+
+body.theme-visurena a {
+    color: var(--vis-radiant-gold);
+    position: relative;
+}
+
+body.theme-visurena a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--vis-radiant-gold);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.theme-visurena a:hover {
+    color: var(--vis-star-white);
+    text-shadow: 0 0 10px rgba(248, 248, 248, 0.4);
+}
+
+body.theme-visurena a:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   SOVEREIGN HEADER STYLES
+   ============================================ */
+
+.visurena-header {
+    background: var(--vis-header-gradient);
+    border-bottom: var(--border-thick) solid var(--vis-royal-gold);
+    padding: var(--space-6) var(--space-4);
+    position: relative;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+.visurena-header::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--vis-gold-gradient);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.visurena-title {
+    font-family: var(--font-primary);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-bold);
+    color: var(--vis-radiant-gold);
+    text-align: center;
+    text-shadow: var(--vis-gold-glow);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.visurena-subtitle {
+    font-family: var(--font-secondary);
+    font-size: var(--text-lg);
+    color: var(--vis-star-white);
+    text-align: center;
+    margin-top: var(--space-2);
+    font-style: italic;
+    letter-spacing: 0.05em;
+}
+
+/* ============================================
+   SOVEREIGN BADGE/SEAL
+   ============================================ */
+
+.visurena-seal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2) var(--space-4);
+    background: var(--vis-royal-blue);
+    border: var(--border-medium) solid var(--vis-radiant-gold);
+    border-radius: var(--radius-full);
+    color: var(--vis-radiant-gold);
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: var(--vis-gold-glow);
+    position: relative;
+}
+
+.visurena-seal::before {
+    content: '♔';
+    margin-right: var(--space-1);
+    font-size: 1.2em;
+}
+
+.visurena-seal:hover {
+    background: var(--vis-radiant-gold);
+    color: var(--vis-royal-blue);
+    box-shadow: var(--vis-intense-glow);
+    transform: scale(1.05);
+    transition: all var(--transition-base);
+}
+
+/* ============================================
+   SOVEREIGN QUOTE/PROCLAMATION
+   ============================================ */
+
+.visurena-proclamation {
+    padding: var(--space-5);
+    background: rgba(15, 42, 80, 0.5);
+    border-left: 4px solid var(--vis-radiant-gold);
+    border-right: 4px solid var(--vis-radiant-gold);
+    margin: var(--space-6) 0;
+    position: relative;
+    font-style: italic;
+    font-size: var(--text-lg);
+    color: var(--vis-star-white);
+}
+
+.visurena-proclamation::before,
+.visurena-proclamation::after {
+    content: '"';
+    position: absolute;
+    font-family: var(--font-primary);
+    font-size: var(--text-5xl);
+    color: var(--vis-radiant-gold);
+    opacity: 0.3;
+}
+
+.visurena-proclamation::before {
+    top: 0;
+    left: var(--space-2);
+}
+
+.visurena-proclamation::after {
+    bottom: 0;
+    right: var(--space-2);
+    transform: rotate(180deg);
+}
+
+/* ============================================
+   SOVEREIGN BUTTON STYLES
+   ============================================ */
+
+.visurena-button {
+    display: inline-block;
+    padding: var(--space-3) var(--space-5);
+    background: rgba(27, 60, 112, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 16px;
+    color: var(--vis-radiant-gold);
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.visurena-button:hover {
+    background: rgba(27, 60, 112, 0.7);
+    border-color: var(--vis-radiant-gold);
+    box-shadow: 0 12px 40px rgba(255, 215, 0, 0.3);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.visurena-button:active {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.2);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 640px) {
+    .visurena-title {
+        font-size: var(--text-3xl);
+        letter-spacing: 0.05em;
+    }
+
+    .visurena-subtitle {
+        font-size: var(--text-base);
+    }
+
+    .visurena-panel {
+        padding: var(--space-4);
+    }
+
+    .visurena-proclamation {
+        padding: var(--space-3);
+        font-size: var(--text-base);
+    }
+}

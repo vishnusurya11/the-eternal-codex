@@ -1,0 +1,393 @@
+/**
+ * LEVEL 0: CELESTIAL DOMINION - UNIVERSAL BASE THEME
+ *
+ * This is the foundation layer loaded on ALL pages.
+ * Defines the cosmic, deep-space aesthetic that underlies everything.
+ *
+ * Theme Hierarchy:
+ * Level 0 → Level 1 → Level 2 → Level 3 → Level 4 → Level 5
+ */
+
+:root {
+    /* ============================================
+       LEVEL 0 COLOR PALETTE - CELESTIAL DOMINION
+       ============================================ */
+
+    /* Primary Colors - Royal Throne Colors */
+    --cd-radiant-gold: #FFD700;          /* Radiant Gold (royal throne) */
+    --cd-star-white: #F8F8F8;            /* Star White (royal throne) */
+    --cd-royal-blue: #1B3C70;            /* Royal Blue (royal throne) */
+
+    /* Cosmic Background Colors */
+    --cd-deep-space: #0a0e1a;           /* Deep cosmic background */
+    --cd-void-black: #000000;            /* Pure void */
+    --cd-starlight: #ffffff;             /* Pure starlight */
+    --cd-nebula-purple: #1a0a2e;         /* Nebula depths */
+    --cd-cosmic-blue: #0f1729;           /* Cosmic blue-black */
+
+    /* Accent Colors */
+    --cd-gold-accent: #FFD700;           /* Universal gold highlights (same as radiant-gold) */
+    --cd-silver-accent: #C0C0C0;         /* Universal silver */
+    --cd-celestial-glow: #4a90e2;        /* Ethereal blue glow */
+
+    /* Gradient Definitions */
+    --cd-bg-gradient: linear-gradient(
+        135deg,
+        var(--cd-deep-space) 0%,
+        var(--cd-royal-blue) 40%,
+        var(--cd-nebula-purple) 70%,
+        var(--cd-cosmic-blue) 100%
+    );
+
+    --cd-royal-gradient: linear-gradient(
+        90deg,
+        var(--cd-radiant-gold) 0%,
+        var(--cd-star-white) 50%,
+        var(--cd-royal-blue) 100%
+    );
+
+    --cd-accent-gradient: linear-gradient(
+        90deg,
+        var(--cd-radiant-gold) 0%,
+        var(--cd-silver-accent) 100%
+    );
+
+    /* ============================================
+       TYPOGRAPHY - UNIVERSAL
+       ============================================ */
+
+    --font-primary: 'Cinzel', serif;           /* Headings & Titles */
+    --font-secondary: 'Cormorant Garamond', serif;  /* Body Text */
+    --font-mono: 'Courier New', monospace;     /* Code/Technical */
+
+    /* Font Sizes - Modular Scale (1.250 - Major Third) */
+    --text-xs: 0.64rem;      /* 10.24px */
+    --text-sm: 0.8rem;       /* 12.8px */
+    --text-base: 1rem;       /* 16px */
+    --text-lg: 1.25rem;      /* 20px */
+    --text-xl: 1.563rem;     /* 25px */
+    --text-2xl: 1.953rem;    /* 31.25px */
+    --text-3xl: 2.441rem;    /* 39px */
+    --text-4xl: 3.052rem;    /* 48.83px */
+    --text-5xl: 3.815rem;    /* 61px */
+
+    /* Font Weights */
+    --weight-light: 300;
+    --weight-normal: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+    /* Line Heights */
+    --leading-tight: 1.2;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.75;
+    --leading-loose: 2;
+
+    /* ============================================
+       SPACING SYSTEM - 8px Base Grid
+       ============================================ */
+
+    --space-1: 0.5rem;    /* 8px */
+    --space-2: 1rem;      /* 16px */
+    --space-3: 1.5rem;    /* 24px */
+    --space-4: 2rem;      /* 32px */
+    --space-5: 2.5rem;    /* 40px */
+    --space-6: 3rem;      /* 48px */
+    --space-8: 4rem;      /* 64px */
+    --space-10: 5rem;     /* 80px */
+    --space-12: 6rem;     /* 96px */
+    --space-16: 8rem;     /* 128px */
+
+    /* ============================================
+       SHADOWS & GLOWS - CELESTIAL
+       ============================================ */
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.7);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.8);
+
+    /* Glows */
+    --glow-gold: 0 0 20px rgba(255, 215, 0, 0.3),
+                 0 0 40px rgba(255, 215, 0, 0.2),
+                 0 0 60px rgba(255, 215, 0, 0.1);
+
+    --glow-silver: 0 0 20px rgba(192, 192, 192, 0.3),
+                   0 0 40px rgba(192, 192, 192, 0.2);
+
+    --glow-blue: 0 0 20px rgba(74, 144, 226, 0.3),
+                 0 0 40px rgba(74, 144, 226, 0.2);
+
+    /* ============================================
+       BORDERS & RADII
+       ============================================ */
+
+    --border-thin: 1px;
+    --border-medium: 2px;
+    --border-thick: 3px;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+
+    /* ============================================
+       TRANSITIONS & ANIMATIONS
+       ============================================ */
+
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 250ms ease-in-out;
+    --transition-slow: 400ms ease-in-out;
+
+    --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* ============================================
+       Z-INDEX LAYERS
+       ============================================ */
+
+    --z-base: 1;
+    --z-nav: 100;
+    --z-sidebar: 200;
+    --z-modal: 1000;
+    --z-tooltip: 2000;
+}
+
+/* ============================================
+   BASE RESET & FOUNDATION STYLES
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-secondary);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--cd-starlight);
+    background: var(--cd-bg-gradient);
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Cosmic Background Effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 10%, white, transparent),
+        radial-gradient(2px 2px at 90% 60%, white, transparent),
+        radial-gradient(1px 1px at 33% 80%, white, transparent);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    opacity: 0.3;
+    z-index: -1;
+    animation: starfield 200s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes starfield {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* ============================================
+   TYPOGRAPHY BASE STYLES
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-bold);
+    line-height: var(--leading-tight);
+    color: var(--cd-starlight);
+    margin-bottom: var(--space-3);
+    text-rendering: optimizeLegibility;
+}
+
+h1 {
+    font-size: var(--text-5xl);
+    letter-spacing: 0.02em;
+    text-shadow: var(--glow-gold);
+    margin-bottom: var(--space-4);
+}
+
+h2 {
+    font-size: var(--text-4xl);
+    letter-spacing: 0.015em;
+    margin-bottom: var(--space-4);
+}
+
+h3 {
+    font-size: var(--text-3xl);
+    letter-spacing: 0.01em;
+}
+
+h4 {
+    font-size: var(--text-2xl);
+}
+
+h5 {
+    font-size: var(--text-xl);
+}
+
+h6 {
+    font-size: var(--text-lg);
+}
+
+p {
+    margin-bottom: var(--space-4);
+    line-height: var(--leading-relaxed);
+}
+
+a {
+    color: var(--cd-gold-accent);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+a:hover {
+    color: var(--cd-starlight);
+    text-shadow: var(--glow-gold);
+}
+
+a:focus {
+    outline: 2px solid var(--cd-gold-accent);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   LAYOUT UTILITIES
+   ============================================ */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.section {
+    padding: var(--space-12) 0;
+    margin-bottom: var(--space-8);
+}
+
+.divider {
+    width: 100%;
+    height: var(--border-thin);
+    background: var(--cd-accent-gradient);
+    margin: var(--space-6) 0;
+    opacity: 0.3;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    body::before {
+        animation: none;
+    }
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Mobile: < 640px (default) */
+/* Tablet: 640px - 1024px */
+@media (min-width: 640px) {
+    html {
+        font-size: 17px;
+    }
+}
+
+/* Desktop: > 1024px */
+@media (min-width: 1024px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+/* ============================================
+   SELECTION STYLING
+   ============================================ */
+
+::selection {
+    background: var(--cd-gold-accent);
+    color: var(--cd-void-black);
+}
+
+::-moz-selection {
+    background: var(--cd-gold-accent);
+    color: var(--cd-void-black);
+}
+
+/* ============================================
+   SCROLLBAR STYLING (Webkit browsers)
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cd-deep-space);
+    border-left: var(--border-thin) solid rgba(255, 215, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        var(--cd-gold-accent),
+        var(--cd-silver-accent)
+    );
+    border-radius: var(--radius-full);
+    border: 2px solid var(--cd-deep-space);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cd-gold-accent);
+    box-shadow: var(--glow-gold);
+}

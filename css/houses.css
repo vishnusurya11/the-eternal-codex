@@ -1,0 +1,432 @@
+/* ==============================================
+   HOUSE-SPECIFIC COLORS & EFFECTS
+   The Eternal Codex
+   ============================================== */
+
+/* === HOUSE COLOR VARIABLES === */
+:root {
+    /* Eterna Prime */
+    --eterna-gold: #FFD700;
+    --eterna-white: #F8F8F8;
+    --eterna-blue: #1B3C70;
+
+    /* Regent House Auralis */
+    --auralis-white: #F8F9F9;
+    --auralis-sapphire: #1C3E94;
+
+    /* High House Aurifex (Pre-Production) */
+    --aurifex-ink-blue: #0D1B4C;
+    --aurifex-silver: #BFC7D5;
+    --aurifex-midnight: #0D1B4C;
+    --aurifex-steel: #7B7D7D;
+    --aurifex-indigo: #4B5D7C;
+
+    /* High House Virelia (Production) */
+    --virelia-crimson: #A61E2D;
+    --virelia-silver: #E1E1E1;
+    --virelia-ruby: #9B1B30;
+    --virelia-gray: #A8A8A8;
+    --virelia-copper: #B87333;
+
+    /* High House Caeloria (Post-Production) */
+    --caeloria-gold: #FFD86B;
+    --caeloria-ember: #C93A2E;
+    --caeloria-bronze: #D4AF37;
+    --caeloria-amber: #FFBF00;
+    --caeloria-scarlet: #DC143C;
+}
+
+/* === ETERNA PRIME SECTION === */
+.eterna-prime-section {
+    position: relative;
+}
+
+.eterna-prime-section::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 215, 0, 0.1) 0%,
+        rgba(27, 60, 112, 0.05) 50%,
+        transparent 100%
+    );
+    border-radius: 16px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.eterna-prime-section .section-heading {
+    background: linear-gradient(135deg, var(--eterna-gold) 0%, var(--eterna-white) 50%, var(--eterna-blue) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+}
+
+.eterna-prime-section .content-box {
+    border-color: var(--eterna-gold);
+}
+
+.eterna-prime-section .content-box:hover {
+    box-shadow: 0 6px 30px rgba(255, 215, 0, 0.25);
+}
+
+/* === REGENT HOUSE AURALIS === */
+.regent-house {
+    border-left: 4px solid var(--auralis-sapphire);
+    background: linear-gradient(135deg, rgba(28, 62, 148, 0.05) 0%, rgba(248, 249, 249, 0.02) 100%);
+}
+
+.regent-house:hover {
+    box-shadow: 0 6px 30px rgba(28, 62, 148, 0.2);
+}
+
+.regent-house h4 {
+    color: var(--auralis-sapphire);
+}
+
+/* === HIGH HOUSE AURIFEX (Pre-Production) === */
+.aurifex-house {
+    border-left: 4px solid var(--aurifex-ink-blue);
+    background: linear-gradient(135deg, rgba(13, 27, 76, 0.1) 0%, rgba(191, 199, 213, 0.05) 100%);
+    position: relative;
+}
+
+.aurifex-house::before {
+    content: '🕯️';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    opacity: 0.2;
+}
+
+.aurifex-house:hover {
+    border-color: var(--aurifex-silver);
+    box-shadow: 0 6px 30px rgba(13, 27, 76, 0.3), 0 0 20px rgba(191, 199, 213, 0.2);
+}
+
+.aurifex-house h4,
+.aurifex-house .minor-heading {
+    color: var(--aurifex-silver);
+}
+
+.aurifex-house .house-motto {
+    color: var(--aurifex-ink-blue);
+    text-shadow: 0 0 10px rgba(191, 199, 213, 0.5);
+}
+
+.aurifex-house .lesser-house-details {
+    border-color: var(--aurifex-ink-blue);
+}
+
+.aurifex-house .lesser-house-details:hover {
+    border-color: var(--aurifex-silver);
+    background: rgba(13, 27, 76, 0.05);
+}
+
+.aurifex-house .lesser-house-header {
+    background: linear-gradient(135deg, rgba(13, 27, 76, 0.3) 0%, rgba(191, 199, 213, 0.1) 100%);
+    color: var(--aurifex-silver);
+}
+
+.aurifex-house .lesser-house-header:hover {
+    background: linear-gradient(135deg, rgba(13, 27, 76, 0.5) 0%, rgba(191, 199, 213, 0.2) 100%);
+    text-shadow: 0 0 10px rgba(191, 199, 213, 0.6);
+}
+
+/* === HIGH HOUSE VIRELIA (Production) === */
+.virelia-house {
+    border-left: 4px solid var(--virelia-crimson);
+    background: linear-gradient(135deg, rgba(166, 30, 45, 0.1) 0%, rgba(225, 225, 225, 0.05) 100%);
+    position: relative;
+}
+
+.virelia-house::before {
+    content: '🎨';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    opacity: 0.2;
+}
+
+.virelia-house:hover {
+    border-color: var(--virelia-silver);
+    box-shadow: 0 6px 30px rgba(166, 30, 45, 0.3), 0 0 20px rgba(225, 225, 225, 0.2);
+}
+
+.virelia-house h4,
+.virelia-house .minor-heading {
+    color: var(--virelia-silver);
+}
+
+.virelia-house .house-motto {
+    color: var(--virelia-crimson);
+    text-shadow: 0 0 10px rgba(225, 225, 225, 0.5);
+}
+
+.virelia-house .lesser-house-details {
+    border-color: var(--virelia-crimson);
+}
+
+.virelia-house .lesser-house-details:hover {
+    border-color: var(--virelia-silver);
+    background: rgba(166, 30, 45, 0.05);
+}
+
+.virelia-house .lesser-house-header {
+    background: linear-gradient(135deg, rgba(166, 30, 45, 0.3) 0%, rgba(225, 225, 225, 0.1) 100%);
+    color: var(--virelia-silver);
+}
+
+.virelia-house .lesser-house-header:hover {
+    background: linear-gradient(135deg, rgba(166, 30, 45, 0.5) 0%, rgba(225, 225, 225, 0.2) 100%);
+    text-shadow: 0 0 10px rgba(225, 225, 225, 0.6);
+}
+
+/* === HIGH HOUSE CAELORIA (Post-Production) === */
+.caeloria-house {
+    border-left: 4px solid var(--caeloria-gold);
+    background: linear-gradient(135deg, rgba(255, 216, 107, 0.1) 0%, rgba(201, 58, 46, 0.05) 100%);
+    position: relative;
+}
+
+.caeloria-house::before {
+    content: '🔥';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    opacity: 0.2;
+}
+
+.caeloria-house:hover {
+    border-color: var(--caeloria-ember);
+    box-shadow: 0 6px 30px rgba(255, 216, 107, 0.3), 0 0 20px rgba(201, 58, 46, 0.2);
+}
+
+.caeloria-house h4,
+.caeloria-house .minor-heading {
+    color: var(--caeloria-gold);
+}
+
+.caeloria-house .house-motto {
+    color: var(--caeloria-ember);
+    text-shadow: 0 0 10px rgba(255, 216, 107, 0.5);
+}
+
+.caeloria-house .lesser-house-details {
+    border-color: var(--caeloria-gold);
+}
+
+.caeloria-house .lesser-house-details:hover {
+    border-color: var(--caeloria-ember);
+    background: rgba(255, 216, 107, 0.05);
+}
+
+.caeloria-house .lesser-house-header {
+    background: linear-gradient(135deg, rgba(255, 216, 107, 0.3) 0%, rgba(201, 58, 46, 0.1) 100%);
+    color: var(--caeloria-gold);
+}
+
+.caeloria-house .lesser-house-header:hover {
+    background: linear-gradient(135deg, rgba(255, 216, 107, 0.5) 0%, rgba(201, 58, 46, 0.2) 100%);
+    text-shadow: 0 0 10px rgba(255, 216, 107, 0.6);
+}
+
+/* === LESSER HOUSE SPECIFIC GLOWS === */
+
+/* Aurifex Lesser Houses */
+.aurifex-house details:nth-child(1) .lesser-house-header {
+    border-left: 3px solid var(--aurifex-midnight);
+}
+
+.aurifex-house details:nth-child(2) .lesser-house-header {
+    border-left: 3px solid var(--aurifex-steel);
+}
+
+.aurifex-house details:nth-child(3) .lesser-house-header {
+    border-left: 3px solid var(--aurifex-indigo);
+}
+
+/* Virelia Lesser Houses */
+.virelia-house details:nth-child(1) .lesser-house-header {
+    border-left: 3px solid var(--virelia-ruby);
+}
+
+.virelia-house details:nth-child(2) .lesser-house-header {
+    border-left: 3px solid var(--virelia-gray);
+}
+
+.virelia-house details:nth-child(3) .lesser-house-header {
+    border-left: 3px solid var(--virelia-copper);
+}
+
+/* Caeloria Lesser Houses */
+.caeloria-house details:nth-child(1) .lesser-house-header {
+    border-left: 3px solid var(--caeloria-bronze);
+}
+
+.caeloria-house details:nth-child(2) .lesser-house-header {
+    border-left: 3px solid var(--caeloria-amber);
+}
+
+.caeloria-house details:nth-child(3) .lesser-house-header {
+    border-left: 3px solid var(--caeloria-scarlet);
+}
+
+/* === GUILD LIST HOUSE COLORS === */
+.aurifex-house .guild-list li {
+    border-left-color: var(--aurifex-ink-blue);
+    background: rgba(13, 27, 76, 0.05);
+}
+
+.aurifex-house .guild-list li:hover {
+    background: rgba(13, 27, 76, 0.1);
+    box-shadow: 0 2px 10px rgba(191, 199, 213, 0.2);
+}
+
+.virelia-house .guild-list li {
+    border-left-color: var(--virelia-crimson);
+    background: rgba(166, 30, 45, 0.05);
+}
+
+.virelia-house .guild-list li:hover {
+    background: rgba(166, 30, 45, 0.1);
+    box-shadow: 0 2px 10px rgba(225, 225, 225, 0.2);
+}
+
+.caeloria-house .guild-list li {
+    border-left-color: var(--caeloria-gold);
+    background: rgba(255, 216, 107, 0.05);
+}
+
+.caeloria-house .guild-list li:hover {
+    background: rgba(255, 216, 107, 0.1);
+    box-shadow: 0 2px 10px rgba(201, 58, 46, 0.2);
+}
+
+/* === STAR SYSTEM SECTION === */
+.star-system-section {
+    position: relative;
+    padding: 2rem;
+    margin: 2rem 0;
+    background: linear-gradient(135deg, rgba(247, 243, 233, 0.03) 0%, rgba(28, 62, 148, 0.03) 100%);
+    border-radius: 12px;
+    border: 2px solid rgba(28, 62, 148, 0.3);
+}
+
+.star-system-section::before {
+    content: '✦';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: var(--auralis-sapphire);
+    background: var(--bg-deep-space);
+    padding: 0 1rem;
+    text-shadow: 0 0 20px rgba(28, 62, 148, 0.6);
+}
+
+.star-system-section:hover {
+    border-color: var(--auralis-sapphire);
+    box-shadow: 0 0 40px rgba(28, 62, 148, 0.2);
+}
+
+/* === HOUSE INFO TABLES === */
+.aurifex-house .house-info-table {
+    border-color: var(--aurifex-ink-blue);
+}
+
+.aurifex-house .house-info-table th {
+    background: linear-gradient(135deg, rgba(13, 27, 76, 0.4) 0%, rgba(191, 199, 213, 0.2) 100%);
+    color: var(--aurifex-silver);
+}
+
+.virelia-house .house-info-table {
+    border-color: var(--virelia-crimson);
+}
+
+.virelia-house .house-info-table th {
+    background: linear-gradient(135deg, rgba(166, 30, 45, 0.4) 0%, rgba(225, 225, 225, 0.2) 100%);
+    color: var(--virelia-silver);
+}
+
+.caeloria-house .house-info-table {
+    border-color: var(--caeloria-gold);
+}
+
+.caeloria-house .house-info-table th {
+    background: linear-gradient(135deg, rgba(255, 216, 107, 0.4) 0%, rgba(201, 58, 46, 0.2) 100%);
+    color: var(--caeloria-gold);
+}
+
+/* === RANK BADGES === */
+.rank-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rank-sovereign {
+    background: linear-gradient(135deg, var(--eterna-gold) 0%, #ffed4e 100%);
+    color: var(--bg-deep-space);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.rank-regent {
+    background: linear-gradient(135deg, var(--auralis-sapphire) 0%, #2a5bbf 100%);
+    color: white;
+    box-shadow: 0 0 15px rgba(28, 62, 148, 0.5);
+}
+
+.rank-high-house {
+    background: linear-gradient(135deg, #4a5568 0%, #718096 100%);
+    color: white;
+}
+
+.rank-lesser-house {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    color: var(--text-silver);
+}
+
+.rank-guild {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    color: var(--text-dim);
+}
+
+/* === SCROLLBAR STYLING FOR HOUSE SECTIONS === */
+.aurifex-house::-webkit-scrollbar-thumb {
+    background: var(--aurifex-ink-blue);
+}
+
+.virelia-house::-webkit-scrollbar-thumb {
+    background: var(--virelia-crimson);
+}
+
+.caeloria-house::-webkit-scrollbar-thumb {
+    background: var(--caeloria-gold);
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 768px) {
+    .star-system-section {
+        padding: 1rem;
+    }
+
+    .high-house::before {
+        font-size: 1.5rem;
+        top: 5px;
+        right: 5px;
+    }
+}

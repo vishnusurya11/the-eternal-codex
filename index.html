@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Eternal Codex of Visurena - Royal Charter of the Celestial Dominion">
+
+    <!-- Page Title -->
+    <title>The Eternal Codex of Visurena | Gateway</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Theme CSS Layers -->
+    <link rel="stylesheet" href="css/theme-base.css">
+    <link rel="stylesheet" href="css/theme-visurena.css">
+    <link rel="stylesheet" href="css/theme-inheritance.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/space-background.css">
+    <link rel="stylesheet" href="css/modern-cards.css">
+    <link rel="stylesheet" href="css/micro-interactions.css">
+    <link rel="stylesheet" href="css/creative-touches.css">
+
+    <style>
+        /* Gateway-specific styles */
+        .gateway-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gateway-seal {
+            font-size: 120px;
+            color: var(--vis-pure-gold);
+            text-shadow: var(--vis-intense-glow);
+            animation: seal-pulse 3s ease-in-out infinite;
+            margin-bottom: var(--space-6);
+        }
+
+        @keyframes seal-pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        .gateway-title {
+            font-family: var(--font-primary);
+            font-size: var(--text-5xl);
+            font-weight: var(--weight-bold);
+            color: var(--vis-pure-gold);
+            text-align: center;
+            text-shadow: var(--vis-intense-glow);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-3);
+            line-height: 1.2;
+        }
+
+        .gateway-subtitle {
+            font-family: var(--font-secondary);
+            font-size: var(--text-2xl);
+            color: var(--vis-antique-gold);
+            text-align: center;
+            font-style: italic;
+            margin-bottom: var(--space-8);
+            letter-spacing: 0.05em;
+        }
+
+        .gateway-proclamation {
+            max-width: 800px;
+            padding: var(--space-6);
+            background: rgba(27, 60, 112, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-8);
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2),
+                        0 0 60px rgba(255, 215, 0, 0.15);
+        }
+
+        .gateway-proclamation p {
+            font-size: var(--text-lg);
+            line-height: var(--leading-relaxed);
+            color: var(--vis-crown-white);
+            margin: 0;
+        }
+
+        .gateway-seal-text {
+            font-size: var(--text-sm);
+            color: var(--vis-antique-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: var(--space-3);
+            font-style: italic;
+        }
+
+        .gateway-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-5);
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .gateway-card {
+            background: linear-gradient(
+                135deg,
+                rgba(27, 60, 112, 0.4) 0%,
+                rgba(15, 42, 80, 0.5) 100%
+            );
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                        0 0 60px rgba(255, 215, 0, 0.1);
+        }
+
+        .gateway-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--vis-gold-gradient);
+            opacity: 0.8;
+        }
+
+        .gateway-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--vis-pure-gold);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                        0 0 100px rgba(255, 215, 0, 0.3);
+            background: linear-gradient(
+                135deg,
+                rgba(27, 60, 112, 0.5) 0%,
+                rgba(15, 42, 80, 0.6) 100%
+            );
+        }
+
+        .gateway-card__icon {
+            font-size: var(--text-5xl);
+            margin-bottom: var(--space-3);
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+        }
+
+        .gateway-card__title {
+            font-family: var(--font-primary);
+            font-size: var(--text-xl);
+            font-weight: var(--weight-bold);
+            color: var(--vis-royal-gold);
+            margin-bottom: var(--space-2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .gateway-card__desc {
+            font-size: var(--text-base);
+            color: var(--vis-crown-white);
+            line-height: var(--leading-relaxed);
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .gateway-title {
+                font-size: var(--text-3xl);
+                letter-spacing: 0.1em;
+            }
+
+            .gateway-subtitle {
+                font-size: var(--text-lg);
+            }
+
+            .gateway-seal {
+                font-size: 80px;
+            }
+
+            .gateway-nav {
+                grid-template-columns: 1fr;
+                gap: var(--space-3);
+            }
+        }
+    </style>
+</head>
+<body class="theme-visurena">
+
+    <!-- Gateway Container -->
+    <div class="gateway-container">
+
+        <!-- Golden Seal -->
+        <div class="gateway-seal">♔</div>
+
+        <!-- Title -->
+        <h1 class="gateway-title">The Eternal Codex</h1>
+        <p class="gateway-subtitle">of Visurena</p>
+
+        <!-- Proclamation -->
+        <div class="gateway-proclamation">
+            <p>
+                <strong>Royal Charter of the Celestial Dominion</strong><br>
+                The sacred archive of governance, hierarchy, and the eternal systems<br>
+                that bind all realms under the Golden Seal.
+            </p>
+            <p class="gateway-seal-text">— Under the First Flame —</p>
+        </div>
+
+        <!-- Navigation Cards -->
+        <nav class="gateway-nav">
+
+            <a href="celestial-dominion.html" class="gateway-card">
+                <span class="gateway-card__icon">✦</span>
+                <h2 class="gateway-card__title">The Celestial Dominion</h2>
+                <p class="gateway-card__desc">
+                    The supreme meta-system ruling all realms. Explore the governance structure, universal hierarchy, and founding philosophy.
+                </p>
+            </a>
+
+            <a href="eterna-prime/index.html" class="gateway-card">
+                <span class="gateway-card__icon">★</span>
+                <h2 class="gateway-card__title">Eterna Prime</h2>
+                <p class="gateway-card__desc">
+                    The Throne Star System. The capital governance ruling all realms with fire and wisdom.
+                </p>
+            </a>
+
+            <a href="stellara-sonara/index.html" class="gateway-card">
+                <span class="gateway-card__icon">♪</span>
+                <h2 class="gateway-card__title">Stellara Sonara</h2>
+                <p class="gateway-card__desc">
+                    The Singing Star. The realm of audiobook creation, where stories become sound.
+                </p>
+            </a>
+
+        </nav>
+
+        <!-- Footer -->
+        <div class="visurena-divider" style="margin-top: var(--space-10); max-width: 600px; width: 100%;"></div>
+        <p style="text-align: center; padding: var(--space-4); opacity: 0.7; font-size: var(--text-sm); color: var(--vis-antique-gold);">
+            <span class="visurena-crown-mark"></span>
+            Under the Golden Seal of House Visurena
+            <span class="visurena-crown-mark"></span>
+        </p>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/space-background.js"></script>
+    <script src="js/scroll-animations.js"></script>
+    <script src="js/creative-touches.js"></script>
+    <script src="js/wiki-navigation.js"></script>
+
+    <script>
+        // Simple entrance animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.gateway-seal, .gateway-title, .gateway-subtitle, .gateway-proclamation, .gateway-card');
+
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+
+                setTimeout(() => {
+                    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,769 @@
+/**
+ * LEVEL 4 & 5: HIGH HOUSES AND LESSER HOUSES THEME
+ *
+ * Contains all house-specific themes for:
+ * - Level 4: Three High Houses (Aurifex, Virelia, Caeloria)
+ * - Level 5: Nine Lesser Houses (3 per High House)
+ *
+ * Loading Order:
+ * theme-base.css → theme-visurena.css → theme-eterna-prime.css →
+ * theme-stellara-sonara.css → theme-houses.css
+ */
+
+/* ============================================
+   LEVEL 4: HIGH HOUSES
+   ============================================ */
+
+/* --------------------------------------------
+   HIGH HOUSE AURIFEX - Pre-Production (Alchemists of Sound)
+   Order of the Scripted Quill
+   Element: Fire
+   Colors: Gold/Amber
+   -------------------------------------------- */
+
+:root {
+    /* Aurifex Colors */
+    --aurifex-gold: #FFD86B;
+    --aurifex-ember: #C93A2E;
+    --aurifex-flame: #FF6B35;
+    --aurifex-gradient: linear-gradient(135deg, #C93A2E 0%, #FFD86B 100%);
+
+    /* Aurifex Glows */
+    --aurifex-gold-glow: 0 0 25px rgba(255, 216, 107, 0.4),
+                         0 0 50px rgba(255, 216, 107, 0.3);
+    --aurifex-ember-shimmer: 0 0 20px rgba(201, 58, 46, 0.4),
+                             0 0 40px rgba(201, 58, 46, 0.3);
+    --aurifex-fire-aura: 0 0 20px rgba(255, 107, 53, 0.3),
+                         0 0 40px rgba(255, 107, 53, 0.2);
+}
+
+body.theme-aurifex {
+    background: linear-gradient(
+        135deg,
+        var(--aurifex-ember) 0%,
+        #8B4513 50%,
+        var(--aurifex-gold) 100%
+    );
+    background-attachment: fixed;
+}
+
+body.theme-aurifex h1 {
+    color: var(--aurifex-gold);
+    text-shadow: var(--aurifex-gold-glow);
+}
+
+body.theme-aurifex h2 {
+    color: var(--aurifex-flame);
+    text-shadow: var(--aurifex-fire-aura);
+}
+
+.aurifex-panel {
+    background: linear-gradient(
+        135deg,
+        rgba(201, 58, 46, 0.7),
+        rgba(139, 69, 19, 0.5)
+    );
+    border: var(--border-medium) solid var(--aurifex-gold);
+    border-left: 4px solid var(--aurifex-ember);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--aurifex-ember-shimmer);
+}
+
+.aurifex-header {
+    background: var(--aurifex-gradient);
+    padding: var(--space-6);
+    border-bottom: 3px solid var(--aurifex-gold);
+    box-shadow: 0 4px 20px rgba(255, 216, 107, 0.5);
+}
+
+.aurifex-motto::before {
+    content: '🔥 ';
+    font-size: 1.2em;
+}
+
+/* Fire pulse animation */
+.aurifex-icon {
+    display: inline-block;
+    animation: fire-pulse 2s ease-in-out infinite;
+}
+
+@keyframes fire-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+/* --------------------------------------------
+   HIGH HOUSE VIRELIA - Production
+   Order of the Living Frame
+   Element: Fire
+   -------------------------------------------- */
+
+:root {
+    /* Virelia Colors */
+    --virelia-crimson: #A61E2D;
+    --virelia-silver: #E1E1E1;
+    --virelia-fire-red: #DC3545;
+    --virelia-gradient: linear-gradient(135deg, #A61E2D 0%, #E1E1E1 100%);
+
+    /* Virelia Glows */
+    --virelia-crimson-glow: 0 0 30px rgba(166, 30, 45, 0.5),
+                            0 0 60px rgba(166, 30, 45, 0.3);
+    --virelia-fire-pulse: 0 0 20px rgba(220, 53, 69, 0.4),
+                          0 0 40px rgba(220, 53, 69, 0.3),
+                          0 0 60px rgba(220, 53, 69, 0.2);
+    --virelia-silver-shine: 0 0 15px rgba(225, 225, 225, 0.3);
+}
+
+body.theme-virelia {
+    background: linear-gradient(
+        135deg,
+        var(--virelia-crimson) 0%,
+        #8B1A28 50%,
+        var(--virelia-fire-red) 100%
+    );
+    background-attachment: fixed;
+}
+
+body.theme-virelia h1 {
+    color: var(--virelia-silver);
+    text-shadow: var(--virelia-silver-shine);
+}
+
+body.theme-virelia h2 {
+    color: var(--virelia-fire-red);
+    text-shadow: var(--virelia-fire-pulse);
+}
+
+.virelia-panel {
+    background: linear-gradient(
+        135deg,
+        rgba(166, 30, 45, 0.7),
+        rgba(220, 53, 69, 0.5)
+    );
+    border: var(--border-medium) solid var(--virelia-silver);
+    border-left: 4px solid var(--virelia-crimson);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--virelia-crimson-glow);
+    position: relative;
+    overflow: hidden;
+}
+
+.virelia-panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(220, 53, 69, 0.2),
+        transparent
+    );
+    animation: fire-sweep 3s ease-in-out infinite;
+}
+
+@keyframes fire-sweep {
+    0%, 100% { left: -100%; }
+    50% { left: 100%; }
+}
+
+.virelia-header {
+    background: var(--virelia-gradient);
+    padding: var(--space-6);
+    border-bottom: 3px solid var(--virelia-fire-red);
+    box-shadow: 0 4px 20px rgba(166, 30, 45, 0.6);
+}
+
+.virelia-motto::before {
+    content: '🎨 ';
+    font-size: 1.2em;
+}
+
+/* Mirror reflection animation */
+.virelia-icon {
+    display: inline-block;
+    animation: mirror-pulse 2s ease-in-out infinite;
+}
+
+@keyframes mirror-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* --------------------------------------------
+   HIGH HOUSE VERIDEX - Weavers of Truth (Green/Nature theme)
+   Element: Earth/Nature
+   Colors: Green/Emerald
+   -------------------------------------------- */
+
+:root {
+    /* Veridex Colors */
+    --veridex-emerald: #50C878;
+    --veridex-forest: #228B22;
+    --veridex-sage: #87AE73;
+    --veridex-gradient: linear-gradient(135deg, #228B22 0%, #50C878 100%);
+
+    /* Veridex Glows */
+    --veridex-emerald-glow: 0 0 25px rgba(80, 200, 120, 0.4),
+                            0 0 50px rgba(80, 200, 120, 0.3);
+    --veridex-forest-shimmer: 0 0 20px rgba(34, 139, 34, 0.4),
+                              0 0 40px rgba(34, 139, 34, 0.3);
+    --veridex-nature-aura: 0 0 20px rgba(135, 174, 115, 0.3),
+                           0 0 40px rgba(135, 174, 115, 0.2);
+}
+
+body.theme-veridex {
+    background: linear-gradient(
+        135deg,
+        var(--veridex-forest) 0%,
+        #2F5233 50%,
+        var(--veridex-emerald) 100%
+    );
+    background-attachment: fixed;
+}
+
+body.theme-veridex h1 {
+    color: var(--veridex-emerald);
+    text-shadow: var(--veridex-emerald-glow);
+}
+
+body.theme-veridex h2 {
+    color: var(--veridex-sage);
+    text-shadow: var(--veridex-nature-aura);
+}
+
+.veridex-panel {
+    background: linear-gradient(
+        135deg,
+        rgba(34, 139, 34, 0.7),
+        rgba(47, 82, 51, 0.5)
+    );
+    border: var(--border-medium) solid var(--veridex-emerald);
+    border-left: 4px solid var(--veridex-forest);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--veridex-forest-shimmer);
+}
+
+.veridex-header {
+    background: var(--veridex-gradient);
+    padding: var(--space-6);
+    border-bottom: 3px solid var(--veridex-emerald);
+    box-shadow: 0 4px 20px rgba(80, 200, 120, 0.5);
+}
+
+.veridex-motto::before {
+    content: '🌿 ';
+    font-size: 1.2em;
+}
+
+/* Growth pulse animation */
+.veridex-icon {
+    display: inline-block;
+    animation: growth-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes growth-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+/* --------------------------------------------
+   HIGH HOUSE NOCTARA - Keepers of Silence (Dark/Shadow theme)
+   Element: Void/Absence
+   Colors: Deep Purple/Black
+   -------------------------------------------- */
+
+:root {
+    /* Noctara Colors */
+    --noctara-void: #1a0033;
+    --noctara-deep-purple: #4B0082;
+    --noctara-shadow: #2E0854;
+    --noctara-gradient: linear-gradient(135deg, #1a0033 0%, #4B0082 100%);
+
+    /* Noctara Glows */
+    --noctara-void-glow: 0 0 25px rgba(75, 0, 130, 0.5),
+                         0 0 50px rgba(75, 0, 130, 0.3);
+    --noctara-shadow-shimmer: 0 0 20px rgba(46, 8, 84, 0.4),
+                              0 0 40px rgba(46, 8, 84, 0.3);
+    --noctara-silence-aura: 0 0 20px rgba(26, 0, 51, 0.4),
+                            0 0 40px rgba(26, 0, 51, 0.2);
+}
+
+body.theme-noctara {
+    background: linear-gradient(
+        135deg,
+        var(--noctara-void) 0%,
+        #0f0025 50%,
+        var(--noctara-deep-purple) 100%
+    );
+    background-attachment: fixed;
+}
+
+body.theme-noctara h1 {
+    color: var(--noctara-deep-purple);
+    text-shadow: var(--noctara-void-glow);
+}
+
+body.theme-noctara h2 {
+    color: var(--noctara-shadow);
+    text-shadow: var(--noctara-shadow-shimmer);
+}
+
+.noctara-panel {
+    background: linear-gradient(
+        135deg,
+        rgba(26, 0, 51, 0.8),
+        rgba(15, 0, 37, 0.6)
+    );
+    border: var(--border-medium) solid var(--noctara-deep-purple);
+    border-left: 4px solid var(--noctara-void);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--noctara-void-glow);
+}
+
+.noctara-header {
+    background: var(--noctara-gradient);
+    padding: var(--space-6);
+    border-bottom: 3px solid var(--noctara-deep-purple);
+    box-shadow: 0 4px 20px rgba(75, 0, 130, 0.6);
+}
+
+.noctara-motto::before {
+    content: '⚫ ';
+    font-size: 1.2em;
+}
+
+/* Silence fade animation */
+.noctara-icon {
+    display: inline-block;
+    animation: silence-fade 3s ease-in-out infinite;
+}
+
+@keyframes silence-fade {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* --------------------------------------------
+   HIGH HOUSE CAELORIA - Post-Production
+   Order of the Eternal Reel
+   Element: Earth & Light
+   -------------------------------------------- */
+
+:root {
+    /* Caeloria Colors */
+    --caeloria-gold: #FFD86B;
+    --caeloria-ember: #C93A2E;
+    --caeloria-earth: #8B6F47;
+    --caeloria-gradient: linear-gradient(135deg, #FFD86B 0%, #C93A2E 100%);
+
+    /* Caeloria Glows */
+    --caeloria-gold-radiance: 0 0 30px rgba(255, 216, 107, 0.5),
+                              0 0 60px rgba(255, 216, 107, 0.3);
+    --caeloria-ember-glow: 0 0 25px rgba(201, 58, 46, 0.4),
+                           0 0 50px rgba(201, 58, 46, 0.3);
+    --caeloria-warm-aura: 0 0 20px rgba(255, 216, 107, 0.3),
+                          0 0 40px rgba(201, 58, 46, 0.2);
+}
+
+body.theme-caeloria {
+    background: linear-gradient(
+        135deg,
+        var(--caeloria-ember) 0%,
+        var(--caeloria-earth) 50%,
+        var(--caeloria-gold) 100%
+    );
+    background-attachment: fixed;
+}
+
+body.theme-caeloria h1 {
+    color: var(--caeloria-gold);
+    text-shadow: var(--caeloria-gold-radiance);
+}
+
+body.theme-caeloria h2 {
+    color: var(--caeloria-ember);
+    text-shadow: var(--caeloria-ember-glow);
+}
+
+.caeloria-panel {
+    background: linear-gradient(
+        135deg,
+        rgba(201, 58, 46, 0.6),
+        rgba(139, 111, 71, 0.5)
+    );
+    border: var(--border-medium) solid var(--caeloria-gold);
+    border-left: 4px solid var(--caeloria-ember);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--caeloria-warm-aura);
+}
+
+.caeloria-header {
+    background: var(--caeloria-gradient);
+    padding: var(--space-6);
+    border-bottom: 3px solid var(--caeloria-gold);
+    box-shadow: 0 4px 20px rgba(255, 216, 107, 0.5);
+}
+
+.caeloria-motto::before {
+    content: '🔥 ';
+    font-size: 1.2em;
+}
+
+/* Phoenix rising animation */
+.caeloria-icon {
+    display: inline-block;
+    animation: phoenix-rise 3s ease-in-out infinite;
+}
+
+@keyframes phoenix-rise {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+    50% { transform: translateY(-5px) scale(1.05); opacity: 0.9; }
+}
+
+/* ============================================
+   LEVEL 5: LESSER HOUSES
+   ============================================ */
+
+/* --------------------------------------------
+   AURIFEX LESSER HOUSES
+   -------------------------------------------- */
+
+/* House Lexomancer */
+:root {
+    --lexomancer-midnight: #0D1B4C;
+    --lexomancer-binary-silver: #A8B5C9;
+    --lexomancer-glow: 0 0 20px rgba(168, 181, 201, 0.3);
+}
+
+body.theme-lexomancer h3 {
+    color: var(--lexomancer-binary-silver);
+    text-shadow: var(--lexomancer-glow);
+}
+
+.lexomancer-crest::before {
+    content: '📖';
+    margin-right: var(--space-2);
+}
+
+.lexomancer-panel {
+    border-left-color: var(--lexomancer-binary-silver);
+    background: linear-gradient(
+        135deg,
+        rgba(13, 27, 76, 0.6),
+        rgba(168, 181, 201, 0.3)
+    );
+}
+
+/* House Architecton */
+:root {
+    --architecton-steel: #7B7D7D;
+    --architecton-blueprint: #5A7FA1;
+    --architecton-glow: 0 0 20px rgba(90, 127, 161, 0.3);
+}
+
+body.theme-architecton h3 {
+    color: var(--architecton-blueprint);
+    text-shadow: var(--architecton-glow);
+}
+
+.architecton-crest::before {
+    content: '📐';
+    margin-right: var(--space-2);
+}
+
+.architecton-panel {
+    border-left-color: var(--architecton-blueprint);
+    background: linear-gradient(
+        135deg,
+        rgba(123, 125, 125, 0.5),
+        rgba(90, 127, 161, 0.4)
+    );
+}
+
+/* House Promptwright */
+:root {
+    --promptwright-indigo: #4B5D7C;
+    --promptwright-waveform: #6A4C93;
+    --promptwright-glow: 0 0 20px rgba(106, 76, 147, 0.3);
+}
+
+body.theme-promptwright h3 {
+    color: var(--promptwright-waveform);
+    text-shadow: var(--promptwright-glow);
+}
+
+.promptwright-crest::before {
+    content: '🪶';
+    margin-right: var(--space-2);
+}
+
+.promptwright-panel {
+    border-left-color: var(--promptwright-waveform);
+    background: linear-gradient(
+        135deg,
+        rgba(75, 93, 124, 0.5),
+        rgba(106, 76, 147, 0.4)
+    );
+}
+
+/* --------------------------------------------
+   VIRELIA LESSER HOUSES
+   -------------------------------------------- */
+
+/* House Imara */
+:root {
+    --imara-ruby: #9B1B30;
+    --imara-light-crimson: #C84B5B;
+    --imara-glow: 0 0 25px rgba(200, 75, 91, 0.4);
+}
+
+body.theme-imara h3 {
+    color: var(--imara-light-crimson);
+    text-shadow: var(--imara-glow);
+}
+
+.imara-crest::before {
+    content: '✋';
+    margin-right: var(--space-2);
+}
+
+.imara-panel {
+    border-left-color: var(--imara-ruby);
+    background: linear-gradient(
+        135deg,
+        rgba(155, 27, 48, 0.6),
+        rgba(200, 75, 91, 0.4)
+    );
+}
+
+/* House Veyra */
+:root {
+    --veyra-silver-gray: #A8A8A8;
+    --veyra-mirror-silver: #C8C8C8;
+    --veyra-glow: 0 0 20px rgba(200, 200, 200, 0.3);
+}
+
+body.theme-veyra h3 {
+    color: var(--veyra-mirror-silver);
+    text-shadow: var(--veyra-glow);
+}
+
+.veyra-crest::before {
+    content: '🦉';
+    margin-right: var(--space-2);
+}
+
+.veyra-panel {
+    border-left-color: var(--veyra-mirror-silver);
+    background: linear-gradient(
+        135deg,
+        rgba(168, 168, 168, 0.5),
+        rgba(200, 200, 200, 0.3)
+    );
+}
+
+/* House Reclinor */
+:root {
+    --reclinor-copper: #B87333;
+    --reclinor-bronze: #CD7F32;
+    --reclinor-glow: 0 0 20px rgba(205, 127, 50, 0.3);
+}
+
+body.theme-reclinor h3 {
+    color: var(--reclinor-bronze);
+    text-shadow: var(--reclinor-glow);
+}
+
+.reclinor-crest::before {
+    content: '🔨';
+    margin-right: var(--space-2);
+}
+
+.reclinor-panel {
+    border-left-color: var(--reclinor-copper);
+    background: linear-gradient(
+        135deg,
+        rgba(184, 115, 51, 0.5),
+        rgba(205, 127, 50, 0.4)
+    );
+}
+
+/* --------------------------------------------
+   CAELORIA LESSER HOUSES
+   -------------------------------------------- */
+
+/* House Scriptorum */
+:root {
+    --scriptorum-gold-bronze: #D4AF37;
+    --scriptorum-time-gold: #DAA520;
+    --scriptorum-glow: 0 0 25px rgba(218, 165, 32, 0.4);
+}
+
+body.theme-scriptorum h3 {
+    color: var(--scriptorum-time-gold);
+    text-shadow: var(--scriptorum-glow);
+}
+
+.scriptorum-crest::before {
+    content: '✒️';
+    margin-right: var(--space-2);
+}
+
+.scriptorum-panel {
+    border-left-color: var(--scriptorum-gold-bronze);
+    background: linear-gradient(
+        135deg,
+        rgba(212, 175, 55, 0.5),
+        rgba(218, 165, 32, 0.4)
+    );
+}
+
+/* House Alchemere */
+:root {
+    --alchemere-amber: #FFBF00;
+    --alchemere-chalice: #FFCA28;
+    --alchemere-glow: 0 0 25px rgba(255, 202, 40, 0.4);
+}
+
+body.theme-alchemere h3 {
+    color: var(--alchemere-chalice);
+    text-shadow: var(--alchemere-glow);
+}
+
+.alchemere-crest::before {
+    content: '🏆';
+    margin-right: var(--space-2);
+}
+
+.alchemere-panel {
+    border-left-color: var(--alchemere-amber);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 191, 0, 0.5),
+        rgba(255, 202, 40, 0.4)
+    );
+}
+
+/* House Heraldis */
+:root {
+    --heraldis-scarlet-gold: #DC143C;
+    --heraldis-laurel: #FFD700;
+    --heraldis-glow: 0 0 25px rgba(255, 215, 0, 0.4),
+                     0 0 40px rgba(220, 20, 60, 0.3);
+}
+
+body.theme-heraldis h3 {
+    color: var(--heraldis-laurel);
+    text-shadow: var(--heraldis-glow);
+}
+
+.heraldis-crest::before {
+    content: '🎺';
+    margin-right: var(--space-2);
+}
+
+.heraldis-panel {
+    border-left-color: var(--heraldis-scarlet-gold);
+    background: linear-gradient(
+        135deg,
+        rgba(220, 20, 60, 0.5),
+        rgba(255, 215, 0, 0.4)
+    );
+}
+
+/* ============================================
+   SHARED HOUSE COMPONENTS
+   ============================================ */
+
+/* House Card - Generic */
+.house-card {
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    margin: var(--space-4) 0;
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.house-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.house-card h4 {
+    font-family: var(--font-primary);
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-2);
+}
+
+.house-motto {
+    font-style: italic;
+    font-size: var(--text-base);
+    opacity: 0.9;
+    margin: var(--space-2) 0;
+    padding-left: var(--space-4);
+    border-left: 2px solid currentColor;
+}
+
+/* House Badge */
+.house-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: var(--space-1);
+}
+
+/* House List Items */
+.house-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.house-list li {
+    padding: var(--space-2) 0;
+    padding-left: var(--space-6);
+    position: relative;
+}
+
+.house-list li::before {
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 640px) {
+    .house-card {
+        padding: var(--space-3);
+    }
+
+    .house-card h4 {
+        font-size: var(--text-lg);
+    }
+
+    .house-motto {
+        font-size: var(--text-sm);
+        padding-left: var(--space-2);
+    }
+
+    .house-badge {
+        font-size: var(--text-xs);
+        padding: var(--space-1) var(--space-2);
+    }
+}

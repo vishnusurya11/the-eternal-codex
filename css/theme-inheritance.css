@@ -1,0 +1,546 @@
+/**
+ * THEME INHERITANCE & CASCADING LAYER SYSTEM
+ *
+ * This file defines how themes cascade and layer on top of each other.
+ * It manages the visual hierarchy showing parent-child relationships.
+ *
+ * Theme Loading Order (all pages load these in sequence):
+ * 1. theme-base.css (Level 0 - always loaded)
+ * 2. theme-visurena.css (Level 1 - always loaded)
+ * 3. theme-eterna-prime.css (Level 2 - if under Eterna Prime)
+ * 4. theme-stellara-sonara.css (Level 3 - if under Stellara Sonara)
+ * 5. theme-houses.css (Level 4 & 5 - specific house themes)
+ * 6. theme-inheritance.css (this file - manages layering)
+ * 7. navigation.css (navigation components)
+ */
+
+/* ============================================
+   CSS LAYER DEFINITIONS
+   Using CSS @layer to control cascade order
+   ============================================ */
+
+@layer base, sovereign, throne, realm, houses, inheritance;
+
+/* ============================================
+   THEME INHERITANCE INDICATORS
+   Visual cues showing the theme hierarchy
+   ============================================ */
+
+/**
+ * Theme Indicator Bar
+ * Shows all active theme levels as colored segments
+ */
+.theme-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    display: flex;
+    z-index: var(--z-nav);
+    pointer-events: none;
+}
+
+.theme-indicator__segment {
+    flex: 1;
+    transition: all var(--transition-base);
+}
+
+/* Level 0: Celestial Dominion (always present) */
+.theme-indicator__celestial {
+    background: var(--cd-gold-accent);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Level 1: House Visurena (always present) */
+.theme-indicator__visurena {
+    background: var(--vis-royal-gold);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Level 2: Eterna Prime (when applicable) */
+.theme-indicator__eterna-prime {
+    background: linear-gradient(
+        90deg,
+        var(--ep-radiant-gold),
+        var(--ep-royal-blue)
+    );
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+/* Level 3: Stellara Sonara (when applicable) */
+.theme-indicator__stellara {
+    background: linear-gradient(
+        90deg,
+        var(--ss-sapphire),
+        var(--ss-silver)
+    );
+    box-shadow: 0 0 10px rgba(15, 82, 186, 0.4);
+}
+
+/* Level 4: High Houses (when applicable) */
+.theme-indicator__aurifex {
+    background: var(--aurifex-gradient);
+}
+
+.theme-indicator__virelia {
+    background: var(--virelia-gradient);
+}
+
+.theme-indicator__caeloria {
+    background: var(--caeloria-gradient);
+}
+
+/* ============================================
+   BREADCRUMB THEME INHERITANCE
+   Each breadcrumb item shows its level's color
+   ============================================ */
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-6);
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 4px; /* Space for theme indicator */
+}
+
+.breadcrumb__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--text-sm);
+    transition: all var(--transition-base);
+}
+
+.breadcrumb__link {
+    text-decoration: none;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+    font-weight: var(--weight-medium);
+}
+
+.breadcrumb__separator {
+    color: rgba(255, 255, 255, 0.3);
+    user-select: none;
+}
+
+/* Level 0: Celestial Dominion */
+.breadcrumb__item--celestial .breadcrumb__link {
+    color: var(--cd-gold-accent);
+}
+
+.breadcrumb__item--celestial .breadcrumb__link:hover {
+    background: rgba(255, 215, 0, 0.1);
+    text-shadow: var(--glow-gold);
+}
+
+/* Level 1: House Visurena */
+.breadcrumb__item--visurena .breadcrumb__link {
+    color: var(--vis-royal-gold);
+}
+
+.breadcrumb__item--visurena .breadcrumb__link:hover {
+    background: rgba(212, 175, 55, 0.1);
+    text-shadow: var(--vis-gold-glow);
+}
+
+/* Level 2: Eterna Prime */
+.breadcrumb__item--eterna-prime .breadcrumb__link {
+    color: var(--ep-radiant-gold);
+}
+
+.breadcrumb__item--eterna-prime .breadcrumb__link:hover {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 215, 0, 0.1),
+        rgba(27, 60, 112, 0.1)
+    );
+    text-shadow: var(--ep-gold-radiance);
+}
+
+/* Level 3: Stellara Sonara */
+.breadcrumb__item--stellara .breadcrumb__link {
+    color: var(--ss-sapphire);
+}
+
+.breadcrumb__item--stellara .breadcrumb__link:hover {
+    background: rgba(15, 82, 186, 0.1);
+    text-shadow: var(--ss-sapphire-glow);
+}
+
+/* Level 4: High Houses */
+.breadcrumb__item--aurifex .breadcrumb__link {
+    color: var(--aurifex-air-blue);
+}
+
+.breadcrumb__item--aurifex .breadcrumb__link:hover {
+    background: rgba(107, 140, 196, 0.1);
+}
+
+.breadcrumb__item--virelia .breadcrumb__link {
+    color: var(--virelia-fire-red);
+}
+
+.breadcrumb__item--virelia .breadcrumb__link:hover {
+    background: rgba(220, 53, 69, 0.1);
+}
+
+.breadcrumb__item--caeloria .breadcrumb__link {
+    color: var(--caeloria-gold);
+}
+
+.breadcrumb__item--caeloria .breadcrumb__link:hover {
+    background: rgba(255, 216, 107, 0.1);
+}
+
+/* Current page (not a link) */
+.breadcrumb__item--current {
+    color: var(--cd-starlight);
+    font-weight: var(--weight-semibold);
+}
+
+/* ============================================
+   SIDEBAR THEME SECTIONS
+   Shows hierarchy in table of contents
+   ============================================ */
+
+.sidebar-section {
+    margin-bottom: var(--space-4);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+.sidebar-section__title {
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-2);
+    padding-bottom: var(--space-1);
+    border-bottom: 2px solid;
+}
+
+/* Level 0: Celestial Dominion */
+.sidebar-section--celestial {
+    border-left: 3px solid var(--cd-gold-accent);
+}
+
+.sidebar-section--celestial .sidebar-section__title {
+    color: var(--cd-gold-accent);
+    border-bottom-color: var(--cd-gold-accent);
+}
+
+/* Level 1: House Visurena */
+.sidebar-section--visurena {
+    border-left: 3px solid var(--vis-royal-gold);
+}
+
+.sidebar-section--visurena .sidebar-section__title {
+    color: var(--vis-royal-gold);
+    border-bottom-color: var(--vis-royal-gold);
+}
+
+/* Level 2: Eterna Prime */
+.sidebar-section--eterna-prime {
+    border-left: 3px solid transparent;
+    border-image: var(--ep-crown-gradient) 1;
+}
+
+.sidebar-section--eterna-prime .sidebar-section__title {
+    color: var(--ep-radiant-gold);
+    border-bottom-color: var(--ep-radiant-gold);
+    text-shadow: var(--ep-gold-radiance);
+}
+
+/* Level 3: Stellara Sonara */
+.sidebar-section--stellara {
+    border-left: 3px solid var(--ss-sapphire);
+}
+
+.sidebar-section--stellara .sidebar-section__title {
+    color: var(--ss-sapphire);
+    border-bottom-color: var(--ss-sapphire);
+}
+
+/* Level 4: High Houses */
+.sidebar-section--aurifex {
+    border-left: 3px solid var(--aurifex-air-blue);
+}
+
+.sidebar-section--aurifex .sidebar-section__title {
+    color: var(--aurifex-air-blue);
+    border-bottom-color: var(--aurifex-air-blue);
+}
+
+.sidebar-section--virelia {
+    border-left: 3px solid var(--virelia-crimson);
+}
+
+.sidebar-section--virelia .sidebar-section__title {
+    color: var(--virelia-fire-red);
+    border-bottom-color: var(--virelia-crimson);
+}
+
+.sidebar-section--caeloria {
+    border-left: 3px solid var(--caeloria-gold);
+}
+
+.sidebar-section--caeloria .sidebar-section__title {
+    color: var(--caeloria-gold);
+    border-bottom-color: var(--caeloria-ember);
+}
+
+/* ============================================
+   PAGE HEADER THEME LAYERING
+   Shows all parent themes in header background
+   ============================================ */
+
+.page-header {
+    position: relative;
+    padding: var(--space-8) var(--space-6);
+    margin-top: 4px; /* Account for theme indicator */
+    overflow: hidden;
+}
+
+/* Base layer - always present */
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--cd-bg-gradient);
+    opacity: 1;
+    z-index: -3;
+}
+
+/* Theme layers stack on top */
+.page-header--visurena::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--vis-sovereign-gradient);
+    opacity: 0.3;
+    z-index: -2;
+}
+
+.page-header--eterna-prime {
+    background: linear-gradient(
+        135deg,
+        rgba(15, 42, 80, 0.2),
+        rgba(27, 60, 112, 0.2)
+    );
+}
+
+.page-header--stellara {
+    background: linear-gradient(
+        135deg,
+        rgba(25, 25, 112, 0.2),
+        rgba(15, 82, 186, 0.2)
+    );
+}
+
+/* ============================================
+   THEME INHERITANCE BORDERS
+   Composite borders showing multiple levels
+   ============================================ */
+
+.content-section--multi-theme {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left-width: 4px;
+    border-left-style: solid;
+    position: relative;
+}
+
+/* Two-level border (e.g., Visurena + Eterna Prime) */
+.content-section--two-level {
+    border-left: 4px solid;
+    border-image: linear-gradient(
+        180deg,
+        var(--vis-royal-gold) 0%,
+        var(--vis-royal-gold) 50%,
+        var(--ep-radiant-gold) 50%,
+        var(--ep-radiant-gold) 100%
+    ) 1;
+}
+
+/* Three-level border (e.g., Visurena + Eterna + Stellara) */
+.content-section--three-level {
+    border-left: 4px solid;
+    border-image: linear-gradient(
+        180deg,
+        var(--vis-royal-gold) 0%,
+        var(--vis-royal-gold) 33.33%,
+        var(--ep-radiant-gold) 33.33%,
+        var(--ep-radiant-gold) 66.66%,
+        var(--ss-sapphire) 66.66%,
+        var(--ss-sapphire) 100%
+    ) 1;
+}
+
+/* Four-level border (e.g., adds High House) */
+.content-section--four-level-aurifex {
+    border-left: 4px solid;
+    border-image: linear-gradient(
+        180deg,
+        var(--vis-royal-gold) 0%,
+        var(--vis-royal-gold) 25%,
+        var(--ep-radiant-gold) 25%,
+        var(--ep-radiant-gold) 50%,
+        var(--ss-sapphire) 50%,
+        var(--ss-sapphire) 75%,
+        var(--aurifex-air-blue) 75%,
+        var(--aurifex-air-blue) 100%
+    ) 1;
+}
+
+/* ============================================
+   THEME BADGE STACKING
+   Small badges showing all parent themes
+   ============================================ */
+
+.theme-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: var(--space-3) 0;
+}
+
+.theme-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid currentColor;
+}
+
+.theme-badge--celestial {
+    color: var(--cd-gold-accent);
+    background: rgba(255, 215, 0, 0.05);
+}
+
+.theme-badge--visurena {
+    color: var(--vis-royal-gold);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.theme-badge--eterna-prime {
+    color: var(--ep-radiant-gold);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 215, 0, 0.05),
+        rgba(27, 60, 112, 0.05)
+    );
+}
+
+.theme-badge--stellara {
+    color: var(--ss-sapphire);
+    background: rgba(15, 82, 186, 0.05);
+}
+
+/* ============================================
+   RESPONSIVE INHERITANCE DISPLAY
+   ============================================ */
+
+@media (max-width: 768px) {
+    .theme-indicator {
+        height: 3px;
+    }
+
+    .breadcrumb {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--text-xs);
+    }
+
+    .theme-badges {
+        gap: var(--space-1);
+    }
+
+    .theme-badge {
+        font-size: 0.6rem;
+        padding: 2px var(--space-1);
+    }
+
+    /* Hide separator text on mobile, show icon only */
+    .breadcrumb__separator {
+        font-size: 0.8em;
+    }
+}
+
+/* ============================================
+   THEME TRANSITION ANIMATIONS
+   Smooth transitions when navigating hierarchy
+   ============================================ */
+
+@keyframes theme-layer-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-header,
+.breadcrumb,
+.theme-indicator {
+    animation: theme-layer-fade-in var(--transition-slow) var(--easing-smooth);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .page-header,
+    .breadcrumb,
+    .theme-indicator {
+        animation: none;
+    }
+
+    .theme-indicator__segment,
+    .breadcrumb__link,
+    .sidebar-section {
+        transition: none;
+    }
+}
+
+/* ============================================
+   PRINT STYLES - THEME HIERARCHY
+   Show hierarchy clearly in printed versions
+   ============================================ */
+
+@media print {
+    .theme-indicator {
+        display: none;
+    }
+
+    .breadcrumb {
+        background: none;
+        border-bottom: 2px solid #000;
+        color: #000;
+    }
+
+    .breadcrumb__link {
+        color: #000 !important;
+        text-decoration: underline;
+    }
+
+    .theme-badges {
+        display: none;
+    }
+}
