@@ -15,7 +15,11 @@
 
     /* Primary Royal Colors - THE THRONE COLORS */
     --vis-radiant-gold: #FFD700;         /* Radiant Gold (royal throne) */
+    --vis-pure-gold: #FFD700;            /* Alias for radiant gold */
+    --vis-royal-gold: #DAA520;           /* Royal gold variant */
+    --vis-antique-gold: #D4AF37;         /* Antique gold for text */
     --vis-star-white: #F8F8F8;           /* Star White (royal throne) */
+    --vis-crown-white: #FFFFFF;          /* Pure white */
     --vis-royal-blue: #1B3C70;           /* Royal Blue (royal throne) */
 
     /* Supporting Royal Colors */
@@ -75,20 +79,7 @@
    ============================================ */
 
 body.theme-visurena {
-    background: var(--vis-sovereign-gradient);
-    background-attachment: fixed;
-}
-
-/* Enhanced starfield for Visurena */
-body.theme-visurena::before {
-    background-image:
-        radial-gradient(2px 2px at 20% 30%, var(--vis-radiant-gold), transparent),
-        radial-gradient(2px 2px at 60% 70%, var(--vis-star-white), transparent),
-        radial-gradient(1px 1px at 50% 50%, var(--vis-radiant-gold), transparent),
-        radial-gradient(1px 1px at 80% 10%, var(--vis-star-white), transparent),
-        radial-gradient(2px 2px at 90% 60%, var(--vis-radiant-gold), transparent),
-        radial-gradient(1px 1px at 33% 80%, var(--vis-star-white), transparent);
-    opacity: 0.5;
+    background: #000000;
 }
 
 /* ============================================
@@ -166,17 +157,13 @@ body.theme-visurena h6 {
    ============================================ */
 
 .visurena-panel {
-    background: rgba(27, 60, 112, 0.3);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 215, 0, 0.2);
+    background: rgba(27, 60, 112, 0.85);
+    border: 1px solid rgba(255, 215, 0, 0.3);
     border-radius: var(--radius-lg);
     padding: var(--space-6);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2),
-                0 0 60px rgba(255, 215, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     position: relative;
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .visurena-panel::before {
@@ -196,11 +183,9 @@ body.theme-visurena h6 {
 }
 
 .visurena-panel:hover {
-    background: rgba(27, 60, 112, 0.4);
+    background: rgba(27, 60, 112, 0.95);
     border-color: var(--vis-radiant-gold);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3),
-                0 0 80px rgba(255, 215, 0, 0.15);
-    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
 /* ============================================
@@ -251,13 +236,7 @@ body.theme-visurena a:hover::after {
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--vis-gold-gradient);
-    animation: shimmer 3s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+    background: var(--vis-radiant-gold);
 }
 
 .visurena-title {
@@ -362,11 +341,9 @@ body.theme-visurena a:hover::after {
 .visurena-button {
     display: inline-block;
     padding: var(--space-3) var(--space-5);
-    background: rgba(27, 60, 112, 0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    border-radius: 16px;
+    background: rgba(27, 60, 112, 0.8);
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    border-radius: 8px;
     color: var(--vis-radiant-gold);
     font-family: var(--font-primary);
     font-size: var(--text-base);
@@ -374,20 +351,18 @@ body.theme-visurena a:hover::after {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .visurena-button:hover {
-    background: rgba(27, 60, 112, 0.7);
+    background: rgba(27, 60, 112, 0.95);
     border-color: var(--vis-radiant-gold);
-    box-shadow: 0 12px 40px rgba(255, 215, 0, 0.3);
-    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
 }
 
 .visurena-button:active {
-    transform: translateY(-1px) scale(1.01);
-    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.2);
+    transform: translateY(1px);
 }
 
 /* ============================================

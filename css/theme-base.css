@@ -178,38 +178,9 @@ body {
     font-size: var(--text-base);
     line-height: var(--leading-relaxed);
     color: var(--cd-starlight);
-    background: var(--cd-bg-gradient);
-    background-attachment: fixed;
+    background: #000000;
     min-height: 100vh;
     position: relative;
-}
-
-/* Cosmic Background Effect */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-        radial-gradient(2px 2px at 20% 30%, white, transparent),
-        radial-gradient(2px 2px at 60% 70%, white, transparent),
-        radial-gradient(1px 1px at 50% 50%, white, transparent),
-        radial-gradient(1px 1px at 80% 10%, white, transparent),
-        radial-gradient(2px 2px at 90% 60%, white, transparent),
-        radial-gradient(1px 1px at 33% 80%, white, transparent);
-    background-size: 200% 200%;
-    background-position: 0% 0%;
-    opacity: 0.3;
-    z-index: -1;
-    animation: starfield 200s linear infinite;
-    pointer-events: none;
-}
-
-@keyframes starfield {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 100% 100%; }
 }
 
 /* ============================================
@@ -324,10 +295,6 @@ a:focus {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-    }
-
-    body::before {
-        animation: none;
     }
 }
 

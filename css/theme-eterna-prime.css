@@ -70,21 +70,7 @@
    ============================================ */
 
 body.theme-eterna-prime {
-    background: var(--ep-authority-gradient);
-    background-attachment: fixed;
-}
-
-/* Enhanced starfield for Eterna Prime */
-body.theme-eterna-prime::before {
-    background-image:
-        radial-gradient(3px 3px at 20% 30%, var(--ep-radiant-gold), transparent),
-        radial-gradient(2px 2px at 60% 70%, var(--ep-star-white), transparent),
-        radial-gradient(2px 2px at 50% 50%, var(--ep-sapphire), transparent),
-        radial-gradient(1px 1px at 80% 10%, var(--ep-platinum), transparent),
-        radial-gradient(3px 3px at 90% 60%, var(--ep-radiant-gold), transparent),
-        radial-gradient(2px 2px at 33% 80%, var(--ep-star-white), transparent),
-        radial-gradient(1px 1px at 15% 50%, var(--ep-azure), transparent);
-    opacity: 0.5;
+    background: #000000;
 }
 
 /* ============================================
@@ -199,34 +185,9 @@ body.theme-eterna-prime h6 {
     opacity: 0.8;
 }
 
-.eterna-panel::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 215, 0, 0.1),
-        transparent
-    );
-    animation: throne-sweep 4s ease-in-out infinite;
-}
-
-@keyframes throne-sweep {
-    0%, 100% { left: -100%; }
-    50% { left: 100%; }
-}
-
 .eterna-panel:hover {
     border-color: var(--ep-star-white);
-    box-shadow: var(--ep-gold-radiance),
-                var(--ep-white-glow),
-                inset 0 2px 0 rgba(255, 215, 0, 0.2);
-    transform: translateY(-3px);
-    transition: all var(--transition-slow);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
 /* ============================================
@@ -301,13 +262,7 @@ body.theme-eterna-prime a:hover::before {
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--ep-radiance-gradient);
-    animation: throne-pulse 2s ease-in-out infinite;
-}
-
-@keyframes throne-pulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
+    background: var(--ep-radiant-gold);
 }
 
 .eterna-title {
@@ -371,19 +326,12 @@ body.theme-eterna-prime a:hover::before {
     content: '★';
     margin-right: var(--space-2);
     font-size: 1.3em;
-    animation: star-rotate 10s linear infinite;
-}
-
-@keyframes star-rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
 }
 
 .eterna-seal:hover {
     background: var(--ep-radiant-gold);
     color: var(--ep-royal-blue);
-    box-shadow: var(--ep-gold-radiance);
-    transform: scale(1.08);
+    transform: scale(1.05);
     transition: all var(--transition-base);
 }
 
@@ -447,30 +395,10 @@ body.theme-eterna-prime a:hover::before {
     overflow: hidden;
 }
 
-.eterna-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 215, 0, 0.2);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.eterna-button:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
 .eterna-button:hover {
     background: var(--ep-radiant-gold);
     color: var(--ep-royal-blue);
     border-color: var(--ep-star-white);
-    box-shadow: var(--ep-gold-radiance);
-    transform: translateY(-3px) scale(1.02);
 }
 
 .eterna-button:active {
