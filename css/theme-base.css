@@ -178,7 +178,7 @@ body {
     font-size: var(--text-base);
     line-height: var(--leading-relaxed);
     color: var(--cd-starlight);
-    background: #000000;
+    background: #1a1a1a;
     min-height: 100vh;
     position: relative;
 }
